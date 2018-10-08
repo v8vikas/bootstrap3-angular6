@@ -1,3 +1,43 @@
-<p>
-  user-list works!
-</p>
+<div class="patientPortalTable">
+  <app-title-header [title]="title"></app-title-header>
+  <div class="container">
+    <div class="commonBox">
+      <h3 class="headingIcon"><i class="fa fa-users"></i> Patient Portal Users</h3>
+      <div class="displayMainTable table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Last Name</th>
+              <th>First Name</th>
+              <th>Network ID</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Clinic</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>John</td>
+              <td>Doe</td>
+              <td>12345</td>
+              <td>demo@gmail.com</td>
+              <td>89758452</td>
+              <td>Harlem</td>
+              <td>FLS</td>
+              <td>Active</td>
+              <td>
+                <a href="" class="userProfile"><i class="fa fa-cog "></i></a>
+                <a href="#" class="userEdit"><i class="fa fa-trash "></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
