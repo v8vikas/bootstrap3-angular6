@@ -1,3 +1,98 @@
-<p>
-  user-add works!
-</p>
+<div class="patientPortalTable">
+  <app-title-header [title]="title"></app-title-header>
+  <div class="container">
+    <div class="commonBox">
+      <h3 class="headingIcon"><i class="fa fa-users"></i> Add/Edit User</h3>
+      <div class="addEditUserFrm">
+        <form>
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label>First Name:</label>
+              <input type="text" class="form-control" placeholder="First Name" />
+            </div>
+            <div class="col-md-6">
+              <label>Last Name:</label>
+              <input type="text" class="form-control" placeholder="Last Name" />
+            </div>
+            <div class="col-md-6">
+              <label>Network ID:</label>
+              <input type="text" class="form-control" placeholder="Network ID" />
+            </div>
+            <div class="col-md-6">
+              <label>Email:</label>
+              <input type="email" class="form-control" placeholder="Email" />
+            </div>
+            <div class="col-md-6">
+              <label>Phone:</label>
+              <input type="email" class="form-control" placeholder="Phone" />
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Clinic:</label>
+                  <select class="form-control" name="TemplateOptions">
+                    <option selected="" value="0" disabled="">Select Clinic</option>
+                    <option value="1" class="option1">Chelsea</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label>Status:</label>
+                  <select class="form-control" name="TemplateOptions">
+                    <option selected="" value="0" disabled="">Select Status</option>
+                    <option value="1" class="option1">Active</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label>Role:</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="radio">
+                    <input type="radio" id="physician" name="radio-group">
+                    <label for="physician">Physician-In-Charge</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="clinic" name="radio-group">
+                    <label for="clinic">Clinic Manager</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="patient" name="radio-group">
+                    <label for="patient">Patient Navigator</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="epi" name="radio-group">
+                    <label for="epi">Epi Clerk</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="radio">
+                    <input type="radio" id="supervisor" name="radio-group">
+                    <label for="supervisor">First Line Supervisor</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="specialist" name="radio-group">
+                    <label for="specialist">Clinical Medical Specialist 4</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="worker" name="radio-group">
+                    <label for="worker">Social Worker</label>
+                  </div>
+                  <div class="radio">
+                    <input type="radio" id="portal" name="radio-group">
+                    <label for="portal">Portal Admin</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="pTop50 PBtn80">
+                <button class="customBtn" name="schedule" type="submit" value="save">save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
