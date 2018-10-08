@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
@@ -24,6 +24,7 @@ import { ReportsModule } from './components/reports/reports.module';
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     DashboardModule,
