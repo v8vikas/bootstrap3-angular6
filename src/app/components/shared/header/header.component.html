@@ -78,7 +78,7 @@
           <div class="mainMenu">
             <span class="titleMenu">Menu</span>
             <ul class="list-inline">
-              <li *ngFor="let menu  of mainMenu"><a routerLink="menu.url">{{menu.title}}</a></li>
+              <li *ngFor="let menu  of mainMenu"><a [routerLink]="[menu.url]">{{menu.title}}</a></li>
             </ul>
           </div>
         </div>

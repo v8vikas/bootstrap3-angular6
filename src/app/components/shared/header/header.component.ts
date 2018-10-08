@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
 
   public mainMenu = [
     {
-      title: 'Message',
-      url: '/message'
+      title: 'Messages',
+      url: '/messages'
     },
     {
       title: 'Templates',

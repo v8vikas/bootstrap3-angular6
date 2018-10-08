@@ -4,24 +4,33 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+
+import { SharedModule } from './components/shared/shared.module';
+import { UsersModule } from './components/users/users.module';
+import { MessagesModule } from './components/messages/messages.module';
+import { TemplatesModule } from './components/templates/templates.module';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { PatientPortalComponent } from './components/patient-portal/patient-portal.component';
-import { AppRoutingModule } from './app.routing.module';
-import { MailsComponent } from './components/mails/mails.component';
+import { ReportsModule } from './components/reports/reports.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    PatientPortalComponent,
-    MailsComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    DashboardModule,
+    MessagesModule,
+    TemplatesModule,
+    ReportsModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
