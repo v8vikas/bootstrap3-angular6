@@ -59,7 +59,6 @@ a:hover {
 
 .headBtm {
   border-top: 1px solid #d5d5d5;
-  border-bottom: 1px solid #d5d5d5;
 }
 
 .headMidL,
@@ -110,23 +109,23 @@ a:hover {
 
 
 @media (max-width:767px) {
-
+  .tableHeading {
+    margin-bottom: 20px;
+  }
   .headMidL,
   .headMidR,
   .btnSrch {
     display: none;
   }
-
   .mbSrch {
     display: block;
   }
 
   .headMid {
     padding: 10px 0;
-    border-bottom: 1px solid#d5d5d5;
   }
 
-  span.titleMenu {
+  .titleMenu {
     display: block;
     border-bottom: 1px solid #e6e6e6;
     font-weight: 800;
@@ -230,7 +229,7 @@ a:hover {
     top: 0;
     z-index: 99;
     text-align: left;
-    /* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: antialiased;
     -webkit-transform-origin: 0% 0%;
@@ -240,7 +239,7 @@ a:hover {
     -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0); */
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
   }
 
   .open .mainMenu {
@@ -263,4 +262,5 @@ a:hover {
   .headBtm {
     border: none;
   }
+
 }
