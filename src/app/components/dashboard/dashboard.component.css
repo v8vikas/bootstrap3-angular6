@@ -1,20 +1,5 @@
-.customBtn {
-  background: #000;
-  padding: 7px 15px;
-  display: inline-block;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #fff;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-  text-align: center;
-  border-radius: 3px;
-  border: none;
-}
-
-
 .patientFrm {
-  padding: 130px 0 150px;
+  padding: 50px 0 0;
 }
 
 .PatientPSection input {
@@ -101,29 +86,3 @@
 
 /* !--======Displaying search results END ======-*/
 /* !--======Displaying search results END ======-*/
-
-
-/* !--======New Group Message ======-*/
-/* !--======New Group Message ======-*/
-.newGroupMsg {
-  padding-top: 50px;
-}
-
-.groupBoxBtn button {
-  margin-left: 6px;
-}
-
-.cPink {
-  background: #d9098c;
-}
-
-.closeGreen {
-  background: #1ebcbe;
-}
-
-.newGroupMsg hr {
-  border-color: #000;
-}
-
-/* !--======New Group Message ======-*/
-/* !--======New Group Message ======-*/

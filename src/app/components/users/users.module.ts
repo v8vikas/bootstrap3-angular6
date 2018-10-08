@@ -4,6 +4,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { SharedModule } from '../shared/shared.module';
 import { UsersComponent } from './users.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -13,12 +14,14 @@ import { UsersComponent } from './users.component';
   declarations: [
     UserListComponent,
     UserAddComponent,
-    UsersComponent
+    UsersComponent,
+    ProfileComponent
   ],
   exports: [
     UserListComponent,
     UserAddComponent,
-    UsersComponent
+    UsersComponent,
+    ProfileComponent
   ]
 })
 export class UsersModule { }

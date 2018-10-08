@@ -81,6 +81,22 @@ body {
   font-family: 'Proxima Nova';
 }
 
+form label {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+a,
+a:focus,
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
 
 ul,
 li {
