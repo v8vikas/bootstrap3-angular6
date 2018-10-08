@@ -80,3 +80,10 @@
 body {
   font-family: 'Proxima Nova';
 }
+
+
+ul,
+li {
+  margin: 0;
+  padding: 0; 
+}
