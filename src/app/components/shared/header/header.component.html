@@ -1,3 +1,95 @@
-<p>
-  header works!
-</p>
+<header>
+  <!-- headTop -->
+  <div class="headTop">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="logoTop">
+            <ul class="list-inline">
+              <li>
+                <a href="www1.nyc.gov" class="nycIm">
+                  <img [src]="nycLogo" alt="NYC" />
+                </a>
+              </li>
+              <li>
+                <span>Health</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="logoTop text-right">
+            <ul class="list-inline">
+              <li>
+                <a href="https://www1.nyc.gov/311/index.page">
+                  311
+                </a>
+              </li>
+              <li>
+                <a href="https://www1.nyc.gov/home/search/index.page">
+                  Search all NYC.gov websites
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- headTop End -->
+
+  <!-- headMid -->
+  <div class="headMid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+          <div class="headMidL">
+            <p>Promoting and Protecting the City's Health </p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="headMidLogo text-center">
+            <div class="mbTgl">
+              <span class="one"></span>
+              <span class="two"></span>
+              <span class="three"></span>
+            </div>
+            <img src="{{mainLogo}}" alt="logo" />
+            <div class="mbSrch">
+              <i class="fa fa-search"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="headMidR text-right">
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">Text-Size</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- headMid End -->
+
+  <!-- headBtm -->
+  <div class="headBtm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <div class="mainMenu">
+            <span class="titleMenu">Menu</span>
+            <ul class="list-inline">
+              <li *ngFor="let menu  of mainMenu"><a routerLink="menu.url">{{menu.title}}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="btnSrch text-right">
+            <a href="" class="customBtn cPink">Search</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- headBtm End-->
+  <div class="overlay"></div>
+</header>
