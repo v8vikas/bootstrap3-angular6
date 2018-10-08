@@ -1,3 +1,230 @@
-<p>
-  patient-portal works!
-</p>
+<div class="patientPSection">
+  <h1 class="blugBgHed">Sexual Health Patient Portal</h1>
+  <div class="container">
+    <form class="patientFrm">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="EMR #">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Date of Birth">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Date of Visit">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button type="submit" class="customBtn ">
+              SEARCH
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!--======Displaying search results for last name "Doe".======-->
+<div class="displaySrchTable">
+  <div class="container">
+    <h3 class="tableHeading">Displaying search results for last name "Doe".</h3>
+    <div class="displayMainTable table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>EMR ID</th>
+            <th>Date of Birth</th>
+            <th>Date of Visit</th>
+            <th>Actions</th>
+            <th>
+              <input type="checkbox" id="checkAllCheck" />
+              <label for="checkAllCheck"></label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Doe</td>
+            <td>Jonathan</td>
+            <td>999999</td>
+            <td>10/15/67</td>
+            <td>03/08/18</td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying1" />
+              <label for="displaying1"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Doe</td>
+            <td>Eliza</td>
+            <td>888888</td>
+            <td>12/07/90 </td>
+            <td>01/12/18 </td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying2" />
+              <label for="displaying2"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Doe</td>
+            <td>Shirley</td>
+            <td>777777</td>
+            <td>04/03/50</td>
+            <td>01/12/18</td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying3" />
+              <label for="displaying3"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Doe</td>
+            <td>Joe</td>
+            <td>666666</td>
+            <td>08/08/75 </td>
+            <td>03/08/18 </td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying4" />
+              <label for="displaying4"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Doe</td>
+            <td>Cameron</td>
+            <td>555555</td>
+            <td>02/20/63</td>
+            <td>01/12/18 </td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying5" />
+              <label for="displaying5"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Doe</td>
+            <td>Molly</td>
+            <td>444444</td>
+            <td>04/09/49 </td>
+            <td>03/08/18 </td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying6" />
+              <label for="displaying6"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Doe</td>
+            <td>Misty</td>
+            <td>333333</td>
+            <td>06/30/48</td>
+            <td>03/08/18 </td>
+            <td>
+              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
+              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+              <input type="checkbox" id="displaying7" />
+              <label for="displaying7"></label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="groupBoxBtn text-right"><a class="customBtn" href="">GROUP MESSAGE</a></div>
+  </div>
+</div>
+<!--======Displaying search results for last name "Doe".======-->
+
+
+
+
+<!--======New Group Message======-->
+<div class="newGroupMsg">
+  <div class="container">
+    <h3 class="tableHeading">New Group Message</h3>
+    <div class="newGroupMsgFrm">
+      <form>
+        <div class="row form-group">
+          <div class="col-md-6">
+            <label>Send To:</label>
+            <input type="text" value="Molly Doe,Misty Doe" class="form-control" />
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-3">
+            <select class="form-control" name="TemplateOptions">
+              <option selected="" value="0" disabled="">Select a template</option>
+              <option value="1" class="option1">PIC Urgent Follow-up</option>
+              <option value="2" class="option2">Template Msg 2</option>
+              <option value="3" class="option3">Template Msg 3</option>
+              <option value="4" class="option4">Template Msg 4</option>
+            </select>
+          </div>
+          <div class="col-md-9">
+            <input type="text" placeholder="Subject" class="form-control" />
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-12">
+            <textarea rows="6" readonly="" disabled class="form-control" placeholder="Select a template message from the dropdown menu.">This is template message number three.</textarea>
+          </div>
+        </div>
+        <hr />
+        <div class="groupBoxBtn text-right">
+          <button class="customBtn" value="Save" name="save" type="submit">Save</button>
+
+          <button class="customBtn" value="Schedule" name="schedule" type="submit">Schedule</button>
+
+          <button class="customBtn closeGreen" value="Close" name="close" type="submit">Close</button>
+
+          <button class="customBtn cPink" value="Send" name="send" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--======New Group Message======-->

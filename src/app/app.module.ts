@@ -8,13 +8,15 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { PatientPortalComponent } from './components/patient-portal/patient-portal.component';
 import { AppRoutingModule } from './app.routing.module';
+import { MailsComponent } from './components/mails/mails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PatientPortalComponent
+    PatientPortalComponent,
+    MailsComponent
   ],
   imports: [
     BrowserModule,
