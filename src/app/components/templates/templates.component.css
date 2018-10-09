@@ -1,0 +1,45 @@
+.templateBCreate {
+  padding-bottom: 40px;
+}
+
+.pdL6 {
+  padding-left: 6px;
+}
+
+.pdTop40 {
+  padding-top: 40px;
+}
+
+.msgTxtarea label {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 11px;
+}
+
+.msgTxtarea {
+  padding-top: 15px;
+}
+
+
+/*================media query =========*/
+@media (max-width:767px) {
+
+  /* .templateBuilder {
+    padding-top: 25px;
+  } */
+  .msgSidebar {
+    padding-bottom: 20px;
+  }
+
+  .pdL6 {
+    padding-left: 15px;
+  }
+
+  .emailPhysician div:first-child {
+    padding-right: 5px;
+  }
+
+  .emailPhysician div:last-child {
+    padding-left: 5px;
+  }
+}

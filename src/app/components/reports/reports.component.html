@@ -1,1 +1,89 @@
 <app-title-header [title]="title"></app-title-header>
+<div class="reports">
+  <div class="container">
+    <div class="templateBCreate">
+      <h3 class="headingIcon"><i class="fa fa-floppy-o"></i> Saved Reports</h3>
+      <div class="row pdTop40">
+        <div class="col-md-3">
+          <div class="msgSidebar">
+            <ul class="list-unstyled">
+              <li class="active"><a href="">Scheduled Messages</a></li>
+              <li><a href="">Assigned Messages</a></li>
+              <li><a href="">Delivered Messages</a></li>
+              <li><a href="">Archived Messages</a></li>
+              <li><a href="">Message Statistics</a></li>
+              <li><a href="">Usage Statistics</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9 pdL6">
+          <div class="msgBoxActive">
+            <div class="scheduledArea form-group">
+              <label>Report Description</label>
+              <textarea class="form-control" disabled="" readonly="" rows="6">This is the template 1 saved message.</textarea>
+            </div>
+            <div class="editMsg">
+              <button class="customBtn">Run</button> <button class="customBtn">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="templateBCreate">
+      <h3 class="headingIcon"><i class="fa fa-filter"></i> Report Criteria</h3>
+      <form>
+        <div class="row reportFrm">
+          <div class="col-xs-6 col-sm-2">
+            <div class="form-group">
+              <label>Start Date</label>
+              <input type="text" class="form-control" placeholder="MM/DD/YY">
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-2">
+            <div class="form-group">
+              <label>End Date</label>
+              <input type="text" class="form-control" placeholder="MM/DD/YY">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-2">
+            <div class="form-group">
+              <label>Clinic</label>
+              <select class="form-control">
+                <option value="1">Chelsea</option>
+                <option value="2">Harlem</option>
+                <option value="3">Morrisania</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-2">
+            <div class="form-group">
+              <label>Role</label>
+              <select class="form-control">
+                <option value="1">Physician in Charge</option>
+                <option value="2">Epidemiology</option>
+                <option value="3">Social Work</option>
+                <option value="4">General</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-2">
+            <div class="form-group">
+              <label>Format</label>
+              <select class="form-control">
+                <option value="1">CSV</option>
+                <option value="2">PDF</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-2">
+            <button class="customBtn wdthFull">
+              RUN
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
