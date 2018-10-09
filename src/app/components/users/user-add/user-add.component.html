@@ -4,42 +4,43 @@
     <div class="commonBox">
       <h3 class="headingIcon"><i class="fa fa-users"></i> Add/Edit User</h3>
       <div class="addEditUserFrm">
-        <form>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
           <div class="row form-group">
             <div class="col-md-6">
               <label>First Name:</label>
-              <input type="text" class="form-control" placeholder="First Name" />
+              <input formControlName="firstName" type="text" class="form-control" placeholder="First Name" />
             </div>
             <div class="col-md-6">
               <label>Last Name:</label>
-              <input type="text" class="form-control" placeholder="Last Name" />
+              <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name" />
             </div>
             <div class="col-md-6">
               <label>Network ID:</label>
-              <input type="text" class="form-control" placeholder="Network ID" />
+              <input formControlName="networkId" type="text" class="form-control" placeholder="Network ID" />
             </div>
             <div class="col-md-6">
               <label>Email:</label>
-              <input type="email" class="form-control" placeholder="Email" />
+              <input formControlName="email" type="email" class="form-control" placeholder="Email" />
             </div>
             <div class="col-md-6">
               <label>Phone:</label>
-              <input type="email" class="form-control" placeholder="Phone" />
+              <input formControlName="phone" type="email" class="form-control" placeholder="Phone" />
             </div>
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-6">
                   <label>Clinic:</label>
-                  <select class="form-control" name="TemplateOptions">
+                  <select formControlName="clinic" class="form-control" name="TemplateOptions">
                     <option selected="" value="0" disabled="">Select Clinic</option>
-                    <option value="1" class="option1">Chelsea</option>
+                    <option [value]="'Chelsea'" class="option1">Chelsea</option>
                   </select>
                 </div>
                 <div class="col-md-6">
                   <label>Status:</label>
-                  <select class="form-control" name="TemplateOptions">
+                  <select formControlName="status" class="form-control" name="TemplateOptions">
                     <option selected="" value="0" disabled="">Select Status</option>
-                    <option value="1" class="option1">Active</option>
+                    <option [value]="'active'" class="option1">Active</option>
+                    <option [value]="'inactive'" class="option1">In-Active</option>
                   </select>
                 </div>
               </div>
@@ -49,37 +50,37 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="radio">
-                    <input type="radio" id="physician" name="radio-group">
+                    <input formControlName="role"  [value]="'Physician-In-Charge'" type="radio" id="physician" name="role">
                     <label for="physician">Physician-In-Charge</label>
                   </div>
                   <div class="radio">
-                    <input type="radio" id="clinic" name="radio-group">
+                    <input formControlName="role" [value]="'Clinic Manager'"  type="radio" id="clinic" name="role">
                     <label for="clinic">Clinic Manager</label>
                   </div>
                   <div class="radio">
-                    <input type="radio" id="patient" name="radio-group">
+                    <input formControlName="role" [value]="'Patient Navigator'"  type="radio" id="patient" name="role">
                     <label for="patient">Patient Navigator</label>
                   </div>
                   <div class="radio">
-                    <input type="radio" id="epi" name="radio-group">
+                    <input formControlName="role" [value]="'Epi Clerk'" type="radio" id="epi" name="role">
                     <label for="epi">Epi Clerk</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="radio">
-                    <input type="radio" id="supervisor" name="radio-group">
+                    <input formControlName="role"  [value]="'First Line Supervisor'" type="radio" id="supervisor" name="role">
                     <label for="supervisor">First Line Supervisor</label>
                   </div>
                   <div class="radio">
-                    <input type="radio" id="specialist" name="radio-group">
+                    <input formControlName="role"  [value]="'Clinical Medical Specialist 4'" type="radio" id="specialist" name="role">
                     <label for="specialist">Clinical Medical Specialist 4</label>
                   </div>
                   <div class="radio">
-                    <input type="radio" id="worker" name="radio-group">
+                    <input formControlName="role" [value]="'Social Worker'"  type="radio" id="worker" name="role">
                     <label for="worker">Social Worker</label>
                   </div>
                   <div class="radio">
-                    <input type="radio" id="portal" name="radio-group">
+                    <input formControlName="role" [value]="'Portal Admin'"  type="radio" id="portal" name="role">
                     <label for="portal">Portal Admin</label>
                   </div>
                 </div>

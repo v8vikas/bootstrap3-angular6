@@ -14,6 +14,7 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { ReportsModule } from './components/reports/reports.module';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,10 @@ import { ReportsModule } from './components/reports/reports.module';
     BrowserModule,
     AngularFontAwesomeModule,
     HttpClientModule,
+    ServicesModule.forRoot(),
     AppRoutingModule,
+
+    // All modules. 
     SharedModule,
     DashboardModule,
     MessagesModule,

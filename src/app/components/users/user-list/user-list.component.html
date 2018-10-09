@@ -20,16 +20,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>John</td>
-              <td>Doe</td>
-              <td>12345</td>
-              <td>demo@gmail.com</td>
-              <td>89758452</td>
-              <td>Harlem</td>
-              <td>FLS</td>
-              <td>Active</td>
+            <tr *ngFor="let user of users">
+              <td>{{user.networkId}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.clinic}}</td>
+              <td>{{user.role}}</td>
+              <td>{{user.status}}</td>
+              <td>{{user.active}}</td>
               <td>
                 <a href="" class="userProfile"><i class="fa fa-cog "></i></a>
                 <a href="#" class="userEdit"><i class="fa fa-trash "></i></a>
