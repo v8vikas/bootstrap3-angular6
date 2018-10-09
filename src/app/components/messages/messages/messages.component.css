@@ -1,0 +1,216 @@
+.newMsgBtn .cPink {
+  background: #d9098c;
+  width: 100%;
+}
+
+.tabPanel a {
+  display: inline-block;
+  width: 100%;
+  padding: 8px 15px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #6b6b6b;
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+.tabPanel .active a {
+  background: #006db8;
+  color: #fff;
+}
+
+.tabPanel .active .badge {
+  background: #fff;
+  color: #222;
+}
+
+.tabPanel span.badge {
+  border-radius: 2px;
+  position: relative;
+  top: 2px;
+  background: #999;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.tabPanel a:hover {
+  background: #eeeeee;
+}
+
+
+.physicianInbox hr {
+  margin: 12px 0;
+  border-color: #222;
+}
+
+.selectClinic {
+  padding-top: 15px;
+}
+
+.btnCstm {
+  background: #000;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 2px;
+}
+
+.leftRightPg .btnCstm {
+  padding: 6px 10px 5px 10px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.btnCstm.dropdown-toggle {
+  padding: 6px 8px;
+}
+
+.inlineBtn {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.inlineBtn .dropdown {
+  margin: 0 3px 0 1px;
+}
+
+.userNCheck label {
+  position: relative;
+  left: -23px;
+}
+
+.btnCstm label {
+  left: -9px;
+  top: 2px;
+}
+
+.btnCstm [type="checkbox"]:not(:checked)+label:before,
+.btnCstm [type="checkbox"]:checked+label:before {
+  width: 14px;
+  height: 14px;
+}
+
+.btnCstm [type="checkbox"]:not(:checked)+label:after,
+.btnCstm [type="checkbox"]:checked+label:after {
+  font-size: 10px;
+}
+
+.inboxRight {
+  padding-top: 1px;
+}
+
+.userNCheck a {
+  color: #1771b7;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.messageSendF a {
+  color: #1771b7;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.listMsg {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 25px 15px 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-color: #f6f6f6;
+  color: #666;
+}
+
+.physicianInbox {
+  margin-bottom: 100px;
+}
+
+.messageSendF p {
+  font-size: 15px;
+  color: #999;
+  font-weight: 500;
+}
+
+.messageSendF .emailBody {
+  font-size: 17px;
+  color: #222;
+}
+
+.listMsg .badge {
+  border-radius: 0px;
+  background: #999;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.replyFrm {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.leftRightPg>span {
+  position: relative;
+  top: 2px;
+}
+
+.forwardFrm select {
+  margin-bottom: 10px;
+}
+
+.forwardFrm label,
+.replyFrm label {
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.leftRightPg .btn-group button:first-child {
+  margin-right: -3px;
+}
+
+
+/*=============Media Query===========*/
+@media (max-width:767px) {
+  .messageSendF {
+    padding-left: 15px;
+  }
+
+  .messageSendF a {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .userNCheck label {
+    position: relative;
+    left: -1px;
+  }
+
+  .ellipse {
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ellipse {
+    color: #999 !important;
+  }
+
+  .listMsg .col-sm-12.col-md-3 {
+    padding-left: 0;
+    margin-left: -6px;
+  }
+
+  .inlineBtn .fixWdth {
+    width: 34px;
+  }
+
+  /* .physicianInbox {
+    padding-top: 15px;
+  } */
+
+  .userNCheck {
+    padding-bottom: 5px;
+  }
+}

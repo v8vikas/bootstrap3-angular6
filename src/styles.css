@@ -82,7 +82,7 @@ body {
 }
 
 form label {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 15px;
 }
 
@@ -370,7 +370,29 @@ label {
 }
 
 
+/*===========sidebar=============*/
+.msgSidebar ul li a {
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+}
 
+.msgSidebar ul .active a,
+.msgSidebar ul .active a:hover {
+  background: #006db8;
+  color: #fff;
+  border-color: #006db8;
+}
+
+.msgSidebar ul a:hover,
+.msgSidebar ul a:focus {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
 
 
 @media (max-width:767px) {
