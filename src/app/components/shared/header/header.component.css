@@ -20,8 +20,15 @@ a:hover {
   color: #fff;
   font-size: 13px;
   font-weight: 600;
+  transition: 300ms all;
   padding: 0 0 0 3px;
 }
+
+.logoTop span:hover,
+.logoTop.text-right a:hover {
+  opacity: 0.8;
+}
+
 
 .logoTop a img {
   position: relative;
@@ -112,11 +119,13 @@ a:hover {
   .tableHeading {
     margin-bottom: 20px;
   }
+
   .headMidL,
   .headMidR,
   .btnSrch {
     display: none;
   }
+
   .mbSrch {
     display: block;
   }
@@ -138,7 +147,7 @@ a:hover {
 
   .mbTgl {
     position: absolute;
-    top: 5px;
+    top: 6px;
     left: 0;
     border-radius: 10px;
     width: 50px;
@@ -173,6 +182,12 @@ a:hover {
 
   .open .two {
     opacity: 0;
+  }
+
+  .titleMenu .mbTgl {
+    right: 0;
+    left: inherit;
+    top: 5px;
   }
 
   .mbSrch {

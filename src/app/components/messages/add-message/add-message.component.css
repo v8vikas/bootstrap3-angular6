@@ -4,13 +4,14 @@
   padding: 50px 0;
 }
 
-.groupBoxBtn button {
-  margin-left: 6px;
-}
+@media (max-width:767px) {
+  .newGroupMsg {
+    padding: 30px 0 0;
+  }
 
-
-.newGroupMsg hr {
-  border-color: #000;
+  .newGroupMsgFrm .col-md-3 {
+    padding-bottom: 15px;
+  }
 }
 
 /* !--======New Group Message ======-*/

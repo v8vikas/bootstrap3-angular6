@@ -3,27 +3,27 @@
   <div class="container">
     <form class="patientFrm">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-4">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Last Name">
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-sm-2">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="EMR #">
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-sm-2">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Date of Birth">
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-sm-2">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Date of Visit">
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-sm-2">
           <div class="form-group">
             <button type="submit" class="customBtn ">
               SEARCH
@@ -182,51 +182,5 @@
 
 
 
-<!--======New Group Message======-->
-<div class="newGroupMsg">
-  <div class="container">
-    <h3 class="tableHeading">New Group Message</h3>
-    <div class="newGroupMsgFrm">
-      <form>
-        <div class="row form-group">
-          <div class="col-md-6">
-            <label>Send To:</label>
-            <input type="text" value="Molly Doe,Misty Doe" class="form-control" />
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-md-3">
-            <select class="form-control" name="TemplateOptions">
-              <option selected="" value="0" disabled="">Select a template</option>
-              <option value="1" class="option1">PIC Urgent Follow-up</option>
-              <option value="2" class="option2">Template Msg 2</option>
-              <option value="3" class="option3">Template Msg 3</option>
-              <option value="4" class="option4">Template Msg 4</option>
-            </select>
-          </div>
-          <div class="col-md-9">
-            <input type="text" placeholder="Subject" class="form-control" />
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-md-12">
-            <textarea rows="6" readonly="" disabled class="form-control" placeholder="Select a template message from the dropdown menu.">This is template message number three.</textarea>
-          </div>
-        </div>
-        <hr />
-        <div class="groupBoxBtn text-right">
-          <button class="customBtn" value="Save" name="save" type="submit">Save</button>
-
-          <button class="customBtn" value="Schedule" name="schedule" type="submit">Schedule</button>
-
-          <button class="customBtn closeGreen" value="Close" name="close" type="submit">Close</button>
-
-          <button class="customBtn cPink" value="Send" name="send" type="submit">Send</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!--======New Group Message======-->
-
+<app-add-group-message></app-add-group-message>
 <app-add-message></app-add-message>

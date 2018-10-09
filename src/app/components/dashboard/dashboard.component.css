@@ -12,77 +12,25 @@
 }
 
 .patientFrm .row>div {
-  padding: 0 6px;
-}
-
-.patientFrm .row>div:first-child {
-  padding-left: 15px;
+  padding: 0 7.5px;
 }
 
 .patientFrm .customBtn {
   width: 100%;
 }
 
-/* .patientPSection {
-  min-height: calc(100vh - (352px));
-} */
+.patientFrm .row {
+  margin: 0 -7.5px;
+}
 
 @media (max-width:991px) {
-  .patientFrm .row>div {
-    padding: 0 20px;
-  }
 
   .patientFrm {
-    padding: 28px 0 6px;
+    padding: 0 0 6px;
   }
 
   .patientFrm .form-group {
     margin-bottom: 11px;
   }
 
-  .patientFrm .row>div:first-child {
-    padding-left: 20px;
-  }
 }
-
-
-
-/* !--======Displaying search results ======-*/
-/* !--======Displaying search results ======-*/
-.tableHeading {
-  margin-bottom: 44px;
-  font-weight: 800;
-  color: #383838;
-}
-
-.displayMainTable th {
-  font-size: 17px;
-}
-
-.displayMainTable td {
-  font-size: 16px;
-}
-
-.userProfile {
-  padding-right: 12px;
-}
-
-.checkboxDefault {
-  height: 30px;
-  line-height: 34px;
-  border: none;
-  border-radius: 4px;
-  background: #000;
-  padding: 0 11px;
-}
-
-.displayMainTable td input[type="checkbox"] {
-  margin-left: 11px;
-}
-
-.displayMainTable tbody tr:nth-child(odd) {
-  background: #f2f2f2;
-}
-
-/* !--======Displaying search results END ======-*/
-/* !--======Displaying search results END ======-*/
