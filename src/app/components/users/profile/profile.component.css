@@ -1,0 +1,44 @@
+.profilePage {
+  border: 1px solid #CCC;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  border-radius: 5px;
+}
+
+.patientProfile p {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.patientProfile .btnSrch {
+  margin-top: 20px;
+}
+
+.testResultsHeader {
+  margin-top: 50px;
+}
+
+/*===========sidebar=============*/
+.msgSidebar ul li a {
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-size: 16px;
+}
+
+.msgSidebar ul .active a {
+  background: #006db8;
+  color: #fff;
+  border-color: #006db8;
+}
+
+.msgSidebar ul a:hover,
+.msgSidebar ul a:focus {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+
+/*===========sidebar=============*/
