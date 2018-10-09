@@ -76,7 +76,14 @@
       <div class="row">
         <div class="col-md-8 col-sm-8">
           <div class="mainMenu">
-            <span class="titleMenu">Menu</span>
+            <span class="titleMenu">Menu
+              <div class="mbTgl">
+                <span class="one"></span>
+                <span class="two"></span>
+                <span class="three"></span>
+              </div>
+
+            </span>
             <ul class="list-inline">
               <li *ngFor="let menu  of mainMenu"><a [routerLink]="[menu.url]">{{menu.title}}</a></li>
             </ul>
