@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-<<<<<<< HEAD:src/app/services/users/users.service.ts
+
 import { HttpService } from '../http/http.service';
-=======
+
 import { Subject } from 'rxjs/Subject';
->>>>>>> - Added user add, edit and delete functionality:src/app/services/users.service.ts
 
 @Injectable()
 export class UsersService {
