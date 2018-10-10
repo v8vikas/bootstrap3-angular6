@@ -2,69 +2,80 @@
 <div class="templateBuilder">
   <div class="container">
     <div class="templateBCreate">
-      <h3 class="headingIcon"><i class="fa fa-plus-circle"></i> Create New Template</h3>
-      <form>
+      <h3 class="headingIcon">
+        <i class="fa fa-plus-circle"></i> Create New Template
+      </h3>
+      <form (ngSubmit)="onSubmit()" [formGroup]="templateForm">
         <div class="form-group">
           <label>Name:</label>
-          <input type="text" class="form-control" placeholder="Template Name" name="name">
+          <input type="text" form class="form-control" formControlName="templateName" placeholder="Template Name" name="name">
         </div>
         <div class="form-group">
           <label>Message:</label>
-          <textarea rows="6" class="form-control" placeholder="Write a message" name="message"></textarea>
+          <textarea rows="6" class="form-control" formControlName="templateMessage" placeholder="Write a message" name="message"></textarea>
         </div>
         <div class="form-group">
-          <button class="customBtn">
+          <button [disabled]="!templateForm.valid" class="customBtn">
             SAVE
           </button>
         </div>
       </form>
     </div>
     <div class="templateBCreate">
-      <h3 class="headingIcon"><i class="fa fa-floppy-o"></i> Saved Message Templates</h3>
-      <form>
-        <div class="row emailPhysician">
-          <div class="col-md-6 col-xs-6 form-group ">
-            <select class="form-control">
-              <option value="1">Email and SMS Templates</option>
-              <option value="2">Reminders</option>
-            </select>
-          </div>
-          <div class="col-md-6 col-xs-6 form-group ">
-            <select class="form-control">
-              <option value="1">Physician in Charge</option>
-              <option value="2">Epidemiology</option>
-              <option value="3">Social Work</option>
-              <option value="4">General</option>
-            </select>
-          </div>
+      <h3 class="headingIcon">
+        <i class="fa fa-floppy-o"></i> Saved Message Templates</h3>
+      <div class="row emailPhysician">
+        <div class="col-md-6 col-xs-6 form-group ">
+          <select class="form-control">
+            <option value="1">Email and SMS Templates</option>
+            <option value="2">Reminders</option>
+          </select>
         </div>
-        <div class="row pdTop40">
-          <div class="col-md-3">
-            <div class="msgSidebar">
-              <ul class="list-unstyled">
-                <li class="active"><a href="">Template Name 1</a></li>
-                <li><a href="">Template Name 2</a></li>
-                <li><a href="">Template Name 3</a></li>
-                <li><a href="">Template Name 4</a></li>
-                <li><a href="">Template Name 5</a></li>
-                <li><a href="">Template Name 6</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-9 pdL6">
-            <div class="msgBoxActive">
-              <div class="msgTxtarea form-group">
-                <label>Template 1 Message</label>
-                <textarea class="form-control" disabled="" readonly="" rows="6">This is the template 1 saved message.</textarea>
-              </div>
-              <div class="editMsg">
-                <button class="customBtn">save</button>
-              </div>
-            </div>
-          </div>
+        <div class="col-md-6 col-xs-6 form-group ">
+          <select class="form-control">
+            <option value="1">Physician in Charge</option>
+            <option value="2">Epidemiology</option>
+            <option value="3">Social Work</option>
+            <option value="4">General</option>
+          </select>
         </div>
+      </div>
 
-      </form>
+      <div class="row pdTop40" *ngIf="templates && templates.length">
+        <div class="col-md-3">
+          <div class="msgSidebar">
+            <ul class="list-unstyled">
+              <li (click)="activeTemplate = template"
+                [ngClass]="{'active': (activeTemplate?.templateId === template.templateId)}"
+                *ngFor="let template of templates; let i = index;">
+                <a href="javascript:void(0)">{{template.templateName}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9 pdL6">
+          <div class="msgBoxActive">
+            <div *ngIf="activeTemplate" class="msgTxtarea form-group">
+              <label>{{activeTemplate?.templateName}}</label>
+              <textarea
+                class="form-control"
+                [disabled]="!selectedTemplate"
+                [readonly]="!selectedTemplate"
+                rows="6"
+                [(ngModel)]="activeTemplate.templateMessage">
+              </textarea>
+            </div>
+            <div class="editMsg">
+              <button *ngIf="!selectedTemplate" (click)="selectedTemplate = activeTemplate" class="customBtn">Edit</button>
+              <button *ngIf="selectedTemplate" (click)="editTemplate()" class="customBtn">save</button>
+              <button *ngIf="selectedTemplate" (click)="deleteTemplate()" class="customBtn">delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-info" *ngIf="!(templates && templates.length)">
+        Template not available yet!
+      </div>
     </div>
   </div>
 </div>
