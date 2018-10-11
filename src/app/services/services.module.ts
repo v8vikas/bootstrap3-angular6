@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http/http.service';
 import { MessagesService } from './messages/messages.service';
 import { UsersService } from './users/users.service';
+import { TemplatesService } from './templates/templates.service';
 import { ReportsService } from './reports/reports.service';
 
 
@@ -22,6 +23,7 @@ export class ServicesModule {
         HttpService,
         MessagesService,
         UsersService,
+        TemplatesService,
         ReportsService
       ]
     };

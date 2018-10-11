@@ -20,6 +20,10 @@
   padding-top: 15px;
 }
 
+.msgSidebar ul li.active a:focus {
+  text-decoration: none;
+  background-color: #006db8;
+}
 
 /*================media query =========*/
 @media (max-width:767px) {
