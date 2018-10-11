@@ -1,7 +1,9 @@
 <div class="patientProfile">
   <app-title-header [title]="title"></app-title-header>
+
   <div class="container">
-    <div class="profilePage">
+    <!-- pofile section -->
+    <div class="profilePage" id="pofilePageId">
       <h3 class="headingIcon"><i class="fa fa-user"></i> Patient Profile</h3>
       <div class="patientProfile">
         <div class="row profile">
@@ -26,12 +28,14 @@
         </div>
       </div>
     </div>
-    <div class="row testResultsHeader">
-      <div class="col-xs-12">
-        <h3 class="headingIcon"><i class="fa fa-check-circle fa-1x"></i>&nbsp;Test Results</h3>
-      </div>
-      <div class="tableDesign">
-        <div class="col-md-3">
+    <!-- pofile section -->
+    <!-- table design section -->
+    <div class="tableDesign" id="tableDesignId">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="headingIcon"><i class="fa fa-check-circle fa-1x"></i>&nbsp;Test Results</h3>
+        </div>
+        <div class="col-md-3 noRightPad">
           <div class="msgSidebar">
             <ul class="list-unstyled">
               <li class="active"><a href="">Template Name 1</a></li>
@@ -43,14 +47,14 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-md-9 noLeftPad">
           <div class="panel panel-default">
             <div class="panel-body nested-accordion">
               <div class="row mt-10">
                 <div class="col-sm-12">
                   <div class="panel-group" id="level1-accordion">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
+                    <div class="panel panelMain panel-default">
+                      <div class="panel-heading panelMainHead">
                         <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#level1-accordion" href="#plast-pro-1">
                           <a>
                             Blood Panel
@@ -63,7 +67,7 @@
                           <div class="panel-group" id="level2-accordion" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default">
                               <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#level2-accordion"
+                                <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#level2-accordion"
                                   href="#plast-pro-2" aria-expanded="true" aria-controls="plast-pro-2">
                                   <a>
                                     Tested July 7, 2017
@@ -74,36 +78,38 @@
                                 <div class="panel-body nested">
                                   <h3 class="TestResult">Test Result: Negative<span class="follow-up">Follow-up: Make
                                       appointment with provider.</span></h3>
-                                  <table class="TestResultsTable stacktable large-only">
-                                    <thead>
-                                      <tr>
-                                        <th class="th1">Test Performed</th>
-                                        <th class="th2">Result</th>
-                                        <th class="th3">Interpretation</th>
-                                        <th class="th4">Site</th>
-                                        <th class="th5">Report</th>
-                                        <th class="th6">Post Date</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>Test Name</td>
-                                        <td>Result</td>
-                                        <td>Interpretation</td>
-                                        <td>Site</td>
-                                        <td><a href="#">View Report</a></td>
-                                        <td>MM/DD/YY</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Test Name</td>
-                                        <td>Result</td>
-                                        <td>Interpretation</td>
-                                        <td>Site</td>
-                                        <td><a href="#">View Report</a></td>
-                                        <td>MM/DD/YY</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
+                                  <div class="displayMainTable table-responsive">
+                                    <table class="table-bordered table">
+                                      <thead>
+                                        <tr>
+                                          <th class="th1">Test Performed</th>
+                                          <th class="th2">Result</th>
+                                          <th class="th3">Interpretation</th>
+                                          <th class="th4">Site</th>
+                                          <th class="th5">Report</th>
+                                          <th class="th6">Post Date</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>Test Name</td>
+                                          <td>Result</td>
+                                          <td>Interpretation</td>
+                                          <td>Site</td>
+                                          <td><a href="#">View Report</a></td>
+                                          <td>MM/DD/YY</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Test Name</td>
+                                          <td>Result</td>
+                                          <td>Interpretation</td>
+                                          <td>Site</td>
+                                          <td><a href="#">View Report</a></td>
+                                          <td>MM/DD/YY</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -120,7 +126,7 @@
                                 <div class="panel-body nested">
                                   <h3 class="TestResult">Test Result: Negative<span class="follow-up">Follow-up: Make
                                       appointment with provider.</span></h3>
-                                  <table class="TestResultsTable stacktable large-only">
+                                  <table class="table-bordered table">
                                     <thead>
                                       <tr>
                                         <th class="th1">Test Performed</th>
@@ -166,7 +172,7 @@
                                 <div class="panel-body nested">
                                   <h3 class="TestResult">Test Result: Negative<span class="follow-up">Follow-up: Make
                                       appointment with provider.</span></h3>
-                                  <table class="TestResultsTable stacktable large-only">
+                                  <table class="table-bordered table">
                                     <thead>
                                       <tr>
                                         <th class="th1">Test Performed</th>
@@ -215,266 +221,297 @@
           </div>
         </div>
       </div>
-
-      <div class="tabDesign">
-        <div class="row">
-          <div class="col-sm-12">
-            <h3 class="headingIcon"><i class="fa fa-medkit fa-1x"></i>&nbsp;Treatment History</h3>
-          </div>
+    </div>
+    <!-- table design section -->
+    <!-- tab section -->
+    <div class="tabDesign" id="tabDesignId">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="headingIcon"><i class="fa fa-medkit fa-1x"></i>&nbsp;Treatment History</h3>
         </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="tabAcrdn">
-              <div class="panel-group" id="level1-accordion">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#level1-accordion" href="#vaccinations">
-                      <i class="fa fa-stethoscope fa-2x"></i>Vaccinations
-                    </h4>
-                  </div>
-                  <div id="vaccinations" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <div class="row vctnInr">
-                        <h5 class="vctnTitle">Meningococcal</h5>
-                        <table class="table vaccines table-striped">
-                          <thead>
-                            <tr>
-                              <th>Date of Vaccine</th>
-                              <th>Next Vaccine Due</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="row vctnInr">
-                        <h5 class="vctnTitle">Hep B</h5>
-                        <table class="table vaccines table-striped">
-                          <thead>
-                            <tr>
-                              <th>Date of Vaccine</th>
-                              <th>Next Vaccine Due</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="row vctnInr">
-                        <h5 class="vctnTitle">HPV</h5>
-                        <table class="table vaccines table-striped">
-                          <thead>
-                            <tr>
-                              <th>Date of Vaccine</th>
-                              <th>Next Vaccine Due</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                            <tr>
-                              <td class="col-xs-6">01/10/18</td>
-                              <td class="col-xs-6">02/10/18</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+        <div class="col-sm-12">
+          <div class="tabAcrdn">
+            <div class="panel-group" id="level1-accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#level1-accordion" href="#vaccinations">
+                    <i class="fa fa-stethoscope fa-2x"></i>Vaccinations
+                  </h4>
+                </div>
+                <div id="vaccinations" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="vctnInr">
+                      <h5 class="vctnTitle">Meningococcal</h5>
+                      <table class="table vaccines table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Date of Vaccine</th>
+                            <th>Next Vaccine Due</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="vctnInr">
+                      <h5 class="vctnTitle">Hep B</h5>
+                      <table class="table vaccines table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Date of Vaccine</th>
+                            <th>Next Vaccine Due</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="vctnInr">
+                      <h5 class="vctnTitle">HPV</h5>
+                      <table class="table vaccines table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Date of Vaccine</th>
+                            <th>Next Vaccine Due</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                          <tr>
+                            <td class="col-xs-6">01/10/18</td>
+                            <td class="col-xs-6">02/10/18</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  <div class="panel-heading">
-                      <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#level1-accordion" href="#medications">
-                        <i class="fa fa-heartbeat fa-2x"></i>Medications
-                      </h4>
+                </div>
+                <div class="panel-heading">
+                  <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#level1-accordion" href="#medications">
+                    <i class="fa fa-heartbeat fa-2x"></i>Medications
+                  </h4>
+                </div>
+                <div id="medications" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="vctnInr">
+                      <table class="table table-bordered meds">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Generic Name (Brand Name)</th>
+                            <th>Strength</th>
+                            <th>Dose</th>
+                            <th>Direction</th>
+                            <th>Qty. Dispensed</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="col-xs-2">01/16/18</td>
+                            <td class="col-xs-3">Ciprofloxecin</td>
+                            <td class="col-xs-1">N/A</td>
+                            <td class="col-xs-1">0.25 ug/mL</td>
+                            <td class="col-xs-4">N/A</td>
+                            <td class="col-xs-3">0.25 ug/mL</td>
+                          </tr>
+
+                          <tr>
+                            <td class="col-xs-2">01/16/18</td>
+                            <td class="col-xs-3">Ceftriaxone</td>
+                            <td class="col-xs-1">N/A</td>
+                            <td class="col-xs-1">0.006 ug/mL</td>
+                            <td class="col-xs-4">N/A</td>
+                            <td class="col-xs-3">0.006 ug/mL</td>
+                          </tr>
+
+                          <tr>
+                            <td class="col-xs-2">01/16/18</td>
+                            <td class="col-xs-3">Doxycycline</td>
+                            <td class="col-xs-1">100mg</td>
+                            <td class="col-xs-1">100mg</td>
+                            <td class="col-xs-4">By mouth 2x/day</td>
+                            <td class="col-xs-3">14 pills</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
                     </div>
-                    <div id="medications" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <div class="row vctnInr">
-                          <table class="table table-striped meds stacktable large-only">
-                              <thead>
-                                <tr>
-                                  <th>Date</th>
-                                  <th>Generic Name (Brand Name)</th>
-                                  <th>Strength</th>
-                                  <th>Dose</th>
-                                  <th>Direction</th>
-                                  <th>Qty. Dispensed</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td class="col-xs-2">01/16/18</td>
-                                  <td class="col-xs-3">Ciprofloxecin</td>
-                                  <td class="col-xs-1">N/A</td>
-                                  <td class="col-xs-1">0.25 ug/mL</td>
-                                  <td class="col-xs-4">N/A</td>
-                                  <td class="col-xs-3">0.25 ug/mL</td>
-                                </tr>
-
-                                <tr>
-                                  <td class="col-xs-2">01/16/18</td>
-                                  <td class="col-xs-3">Ceftriaxone</td>
-                                  <td class="col-xs-1">N/A</td>
-                                  <td class="col-xs-1">0.006 ug/mL</td>
-                                  <td class="col-xs-4">N/A</td>
-                                  <td class="col-xs-3">0.006 ug/mL</td>
-                                </tr>
-
-                                <tr>
-                                  <td class="col-xs-2">01/16/18</td>
-                                  <td class="col-xs-3">Doxycycline</td>
-                                  <td class="col-xs-1">100mg</td>
-                                  <td class="col-xs-1">100mg</td>
-                                  <td class="col-xs-4">By mouth 2x/day</td>
-                                  <td class="col-xs-3">14 pills</td>
-                                </tr>
-
-                              </tbody>
-                            </table>
-                        </div>
-                      </div>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="refferalDesign">
-        <div class="row">
-          <div class="col-sm-12">
-              <h3 class="headingIcon"><i class="fa fa-calendar fa-1x"></i>&nbsp;Referrals</h3>
-              <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th data-dateformat="MM/DD/YY">Date</th>
-                      <th>Referrals</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="item">
-                      <td class="col-xs-2">09/18/17</td>
-                      <td class="col-xs-10">
-                        <div>
-                          <div role="tab">
-                            <a href="#collapseAA" data-toggle="collapse" data-parent="#accordion">Quam Mollis Mattis Ipsum Tellus<br><span class="subheading">Erat porttitor ligula, eget lacinia odio</span></a>
-                          </div>
-                          <div id="collapseAA" class="collapse" role="tabpanel"><br>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Please call <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr class="item">
-                      <td class="col-xs-2">01/12/16</td>
-                      <td class="col-xs-10">
-                        <div>
-                          <div role="tab">
-                            <a href="#collapseBB" data-toggle="collapse" data-parent="#accordion">Quam Mollis Mattis Ipsum Tellus<br><span class="subheading">Erat porttitor ligula, eget lacinia odio</span></a>
-                          </div>
-                          <div id="collapseBB" class="collapse" role="tabpanel"><br>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Please call <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr class="item">
-                      <td class="col-xs-2">10/08/15</td>
-                      <td class="col-xs-10">
-                        <div>
-                          <div role="tab">
-                            <a href="#collapseCC" data-toggle="collapse" data-parent="#accordion">Quam Mollis Mattis Ipsum Tellus<br><span class="subheading">Erat porttitor ligula, eget lacinia odio</span></a>
-                          </div>
-                          <div id="collapseCC" class="collapse" role="tabpanel"><br>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
-                            </p>
-                            <p>Please call <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-          </div>
+    </div>
+    <!-- tab section -->
+    <!-- refferal section -->
+    <div class="refferalDesign" id="reffDesignId">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="headingIcon"><i class="fa fa-calendar fa-1x"></i>&nbsp;Referrals</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th data-dateformat="MM/DD/YY">Date</th>
+                <th>Referrals</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="item">
+                <td class="col-xs-2">09/18/17</td>
+                <td class="col-xs-10">
+                  <div>
+                    <div role="tab">
+                      <a href="#collapseAA" data-toggle="collapse" data-parent="#accordion">Quam Mollis Mattis Ipsum
+                        Tellus<br><span class="subheading">Erat porttitor ligula, eget lacinia odio</span></a>
+                    </div>
+                    <div id="collapseAA" class="collapse" role="tabpanel"><br>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Please call <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="item">
+                <td class="col-xs-2">01/12/16</td>
+                <td class="col-xs-10">
+                  <div>
+                    <div role="tab">
+                      <a href="#collapseBB" data-toggle="collapse" data-parent="#accordion">Quam Mollis Mattis Ipsum
+                        Tellus<br><span class="subheading">Erat porttitor ligula, eget lacinia odio</span></a>
+                    </div>
+                    <div id="collapseBB" class="collapse" role="tabpanel"><br>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Please call <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="item">
+                <td class="col-xs-2">10/08/15</td>
+                <td class="col-xs-10">
+                  <div>
+                    <div role="tab">
+                      <a href="#collapseCC" data-toggle="collapse" data-parent="#accordion">Quam Mollis Mattis Ipsum
+                        Tellus<br><span class="subheading">Erat porttitor ligula, eget lacinia odio</span></a>
+                    </div>
+                    <div id="collapseCC" class="collapse" role="tabpanel"><br>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.
+                      </p>
+                      <p>Please call <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="reportDesign">
-          <div class="row">
-            <div class="col-sm-12">
-                <h3 class="headingIcon"><i class="fa fa-file-text fa-1x"></i>&nbsp;Reports</h3>
-                <table class="table table-striped sortable">
-                    <thead>
-                      <tr>
-                        <th data-dateformat="MM/DD/YY">Date</th>
-                        <th>Report</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="item">
-                        <td class="col-xs-2">09/18/17</td>
-                        <td class="col-xs-8"><a href="#">General Bacteriology Testing<br><span class="subheading">Public Health Labs</span></a></td>
-                          <td class="col-xs-2"><i class="fa fa-file-pdf-o"></i></td>
-                      </tr>
-                      <tr class="item">
-                        <td class="col-xs-2">01/12/18</td>
-                        <td class="col-xs-8"><a href="#">General Bacteriology Testing<br><span class="subheading">Public Health Labs</span></a></td>
-                          <td class="col-xs-2"><i class="fa fa-file-pdf-o"></i></td>
-                      </tr>
-                      <tr class="item">
-                        <td class="col-xs-2">03/08/15</td>
-                        <td class="col-xs-8"><a href="#">General Bacteriology Testing<br><span class="subheading">Public Health Labs</span></a></td>
-                          <td class="col-xs-2"><i class="fa fa-file-pdf-o"></i></td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-          </div>
+    </div>
+    <!-- refferal section -->
+    <!-- report section -->
+    <div class="reportDesign" id="repoDesignId">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="headingIcon"><i class="fa fa-file-text fa-1x"></i>&nbsp;Reports</h3>
+          <table class="table table-bordered sortable">
+            <thead>
+              <tr>
+                <th data-dateformat="MM/DD/YY">Date</th>
+                <th colspan="2">Report</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="item">
+                <td class="col-xs-2">09/18/17</td>
+                <td class="col-xs-8"><a href="#">General Bacteriology Testing<br><span class="subheading">Public
+                      Health Labs</span></a></td>
+                <td class="col-xs-2"><i class="fa fa-file-pdf-o"></i></td>
+              </tr>
+              <tr class="item">
+                <td class="col-xs-2">01/12/18</td>
+                <td class="col-xs-8"><a href="#">General Bacteriology Testing<br><span class="subheading">Public
+                      Health Labs</span></a></td>
+                <td class="col-xs-2"><i class="fa fa-file-pdf-o"></i></td>
+              </tr>
+              <tr class="item">
+                <td class="col-xs-2">03/08/15</td>
+                <td class="col-xs-8"><a href="#">General Bacteriology Testing<br><span class="subheading">Public
+                      Health Labs</span></a></td>
+                <td class="col-xs-2"><i class="fa fa-file-pdf-o"></i></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
+    </div>
+    <!-- report section -->
+  </div>
+
+  <div class="fixBtm">
+    <div class="fixBtmInr">
+      <ul class="nav navbar-nav">
+        <li class="col-xs-3 col-lg active"><a href="#pofilePageId">
+            <div class="text-center border-padding"><i class="fa fa-user fa-2x"></i></div>
+          </a></li>
+        <li class="col-xs-3 col-lg"><a href="#tableDesignId">
+            <div class="text-center border-padding"><i class="fa fa-check-circle fa-2x"></i></div>
+          </a></li>
+        <li class="col-xs-3 col-lg"><a href="#tabDesignId">
+            <div class="text-center border-padding"><i class="fa fa-medkit fa-2x"></i></div>
+          </a></li>
+        <li class="col-xs-3 col-lg"><a href="#reffDesignId">
+            <div class="text-center border-padding"><i class="fa fa-calendar fa-2x"></i></div>
+          </a></li>
+        <li class="col-xs-3 col-lg"><a href="#repoDesignId">
+            <div class="text-center border-padding"><i class="fa fa-file-text fa-2x"></i></div>
+          </a></li>
+      </ul>
     </div>
   </div>

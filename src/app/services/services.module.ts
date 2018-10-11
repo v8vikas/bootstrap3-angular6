@@ -5,6 +5,7 @@ import { HttpService } from './http/http.service';
 import { MessagesService } from './messages/messages.service';
 import { UsersService } from './users/users.service';
 import { TemplatesService } from './templates/templates.service';
+import { ReportsService } from './reports/reports.service';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ export class ServicesModule {
         HttpService,
         MessagesService,
         UsersService,
-        TemplatesService
+        TemplatesService,
+        ReportsService
       ]
     };
   }
