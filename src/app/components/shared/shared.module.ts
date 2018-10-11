@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedTableComponent } from './shared-table/shared-table.component';
 import { TitleHeaderComponent } from './title-header/title-header.component';
+import { InstructionComponent } from './model/instruction/instruction.component';
 
 @NgModule({
   imports: [
@@ -9,11 +10,13 @@ import { TitleHeaderComponent } from './title-header/title-header.component';
   ],
   declarations: [
     SharedTableComponent,
-    TitleHeaderComponent
+    TitleHeaderComponent,
+    InstructionComponent
   ],
   exports: [
     SharedTableComponent,
-    TitleHeaderComponent
+    TitleHeaderComponent,
+    InstructionComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,40 @@
+.customBtn.wdthFull {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.scheduledArea label {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 11px;
+}
+
+.templateBCreate {
+  padding-bottom: 40px;
+}
+
+.scheduledArea {
+  padding-top: 15px;
+}
+
+.reportFrm>div {
+  padding: 0 6px;
+}
+
+.reportFrm>div:first-child {
+  padding-left: 15px;
+}
+
+.reportFrm>div:last-child {
+  padding-right: 15px;
+}
+
+
+
+/*===========media ==========*/
+@media (max-width:767px) {
+  .reportFrm>div {
+    padding: 0 15px;
+  }
+
+}

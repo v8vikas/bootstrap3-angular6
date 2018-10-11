@@ -17,11 +17,6 @@ import { ReportsModule } from './components/reports/reports.module';
 import { ServicesModule } from './services/services.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
@@ -36,6 +31,11 @@ import { ServicesModule } from './services/services.module';
     TemplatesModule,
     ReportsModule,
     UsersModule
+  ],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
