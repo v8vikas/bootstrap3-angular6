@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReportsComponent } from './reports.component';
+import { SavedReportsComponent } from './saved-reports/saved-reports.component';
+import { ReportCriteriaComponent } from './report-criteria/report-criteria.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -9,10 +11,14 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    ReportsComponent
+    ReportsComponent,
+    SavedReportsComponent,
+    ReportCriteriaComponent
   ],
   exports: [
-    ReportsComponent
+    ReportsComponent,
+    SavedReportsComponent,
+    ReportCriteriaComponent
   ]
 })
 export class ReportsModule { }

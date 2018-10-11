@@ -1,23 +1,16 @@
-import { Component } from '@angular/core';
-import { ReportsService } from '../../services/reports/reports.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']
 })
-export class ReportsComponent {
+export class ReportsComponent implements OnInit {
   title: string = 'Reports';
-  reports: any[] = [];
 
-  constructor(private reportsService: ReportsService) {
-    this.loadReports();
-  }
+  constructor() { }
 
-  loadReports(): void {
-    this.reportsService.getAllReports().subscribe(((reports)=>{
-      this.reports = reports;
-    }))
+  ngOnInit() {
   }
 
 }
