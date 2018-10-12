@@ -6,18 +6,6 @@ $(document).ready(() => {
     $('header').removeClass('open');
   });
 
-
-  $('.fixBtmInr a').bind('click', function (e) {
-    e.preventDefault();
-    var target = $(this).attr("href");
-    $('html, body').stop().animate({
-      scrollTop: $(target).offset().top
-    }, 600, function () {
-      location.hash = target;
-    });
-    return false;
-  });
-
   $(window).scroll(function () {
     var scrollDistance = $(window).scrollTop();
     $('.scrollDown').each(function (i) {

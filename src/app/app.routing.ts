@@ -9,11 +9,11 @@ import { ProfileComponent } from './components/users/profile/profile.component';
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'patient/:id', component: ProfileComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'add-message', component: AddMessageComponent },
   { path: 'templates', component: TemplatesComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'user/:id', component: ProfileComponent },
   { path: 'reports', component: ReportsComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

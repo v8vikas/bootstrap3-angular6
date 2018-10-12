@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { MessagesModule } from '../messages/messages.module';
+import { ServicesModule } from '../../services/services.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    MessagesModule
-
+    MessagesModule,
+    ServicesModule,
+    RouterModule
   ],
   declarations: [
     DashboardComponent
