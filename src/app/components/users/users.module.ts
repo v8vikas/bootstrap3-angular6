@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { RouterModule } from '@angular/router';
+
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { SharedModule } from '../shared/shared.module';
@@ -12,6 +14,7 @@ import { ServicesModule } from '../../services/services.module';
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     ServicesModule.forRoot()
