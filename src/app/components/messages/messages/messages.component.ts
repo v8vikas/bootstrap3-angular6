@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagesService } from '../../../services/messages/messages.service';
+import { MessageCollection } from '../../../models/message-collection';
 
 @Component({
   selector: 'app-messages',
@@ -8,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class MessagesComponent implements OnInit {
   title: string = 'Physician Inbox';
 
-  constructor() { }
+  allMessages: MessageCollection;
+  selectedTab: string = 'inbox';
+  pagination: any = {
+    page: 1,
+    pageSize: 50
+  }
+
+  constructor(private messageServices: MessagesService) { }
 
   ngOnInit() {
+    this.loadMessages()
+  }
+
+  loadMessages(): void {
+    this.messageServices.getMessages().subscribe((messages: any[])=>{
+      this.allMessages = new MessageCollection(messages);
+    });
   }
 
 }

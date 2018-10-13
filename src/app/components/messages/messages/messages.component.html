@@ -8,11 +8,11 @@
         </div>
         <hr>
         <div class="tabPanel">
-          <div class="active">
-            <a href=""><span class="badge pull-right">32</span> Inbox </a>
+          <div [ngClass]="{'active': selectedTab === 'inbox'}">
+            <a (click)="(selectedTab = 'inbox')"><span class="badge pull-right">{{allMessages?.getInboxMessagesReadCount()}}</span> Inbox </a>
           </div>
-          <div>
-            <a href=""><span class="badge pull-right">3</span> Sent </a>
+          <div [ngClass]="{'active': selectedTab === 'sent'}">
+            <a (click)="(selectedTab = 'sent')"><span class="badge pull-right">{{allMessages?.getSentMessagesReadCount()}}</span> Sent </a>
           </div>
         </div>
         <hr>
@@ -62,7 +62,9 @@
             </div>
             <div class="col-sm-7 col-md-6 col-xs-7">
               <div class="text-right leftRightPg">
-                <span class="text-muted"><b>1</b>–<b>50</b> of <b>160</b></span>
+                <span class="text-muted">
+                  <b>{{allMessages?.minIndex + 1}}</b>–<b>{{allMessages?.minIndex + pagination.pageSize}}</b> of <b>{{allMessages?.getTotalCount(selectedTab)}}</b>
+                </span>
                 <div class="btn-group btn-group-sm">
                   <button type="button" class="btnCstm">
                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -74,38 +76,37 @@
               </div>
             </div>
           </div>
-          <hr />
-          <div class="row listMsg">
+          <hr class="divider"/>
+          <div
+            *ngFor="let message of allMessages?.getActiveMessages(
+              selectedTab, pagination.pageSize, pagination.page
+            )"
+            class="row listMsg">
             <div class="col-sm-12 col-md-3">
               <div class="userNCheck">
                 <input id="checkAll" type="checkbox">
                 <label for="checkAll"></label>
                 <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion">
-                  <span class="name">Jane Doe</span>
+                  <span class="name">{{message?.clinician}}</span>
                 </a>
               </div>
             </div>
             <div class="col-sm-12 col-md-9">
               <div class="messageSendF">
                 <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion">
-                  <span class="">I have an update, health question or concern</span>
-                  <p class="ellipse"><span class="emailSummary">Hi, I came to the
-                      clinic two
-                      days ago and forgot what the nurse told me about taking PEP.</span>
+                  <span class="">{{message?.subject}}</span>
+                  <p class="ellipse"><span class="emailSummary">{{message?.message}}</span>
                   </p>
                 </a>
                 <div id="collapseOne" class="collapse" role="tabpanel">
-                  <p class="emailBody">Hi, I came to the clinic two days ago and forgot what the nurse told me about
-                    taking PEP.
-                  </p>
-                  <br><br><br>
+                  <p class="emailBody">{{message?.message}}</p>
                   <button type="submit" class="customBtn">
                     REPLY
                   </button>
                   <button type="submit" class="customBtn">
                     FORWARD
                   </button>
-                  <br>
+                  <div class="clearfix"></div>
                   <div class="replyFrm">
                     <form>
                       <div class="form-group">
@@ -135,95 +136,16 @@
                       <button class="customBtn cPink">Send</button>
                     </form>
                   </div>
-                  <br>
+                  <div class="clearfix"></div>
                 </div>
-                <br>
+                <div class="clearfix"></div>
                 <span class="pull-right timestamp">
-                  <span class="badge"> August 31 </span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="row listMsg">
-            <div class="col-sm-12 col-md-3">
-              <div class="userNCheck">
-                <input id="checkAll" type="checkbox">
-                <label for="checkAll"></label>
-                <a href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">
-                  <span class="name">Jane Doe</span>
-                </a>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-9">
-              <div class="messageSendF">
-                <a href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">
-                  <span class="">Message Title</span>
-                  <p class="ellipse"><span class="emailSummary">
-                      It was a dark and stormy night :D</span>
-                  </p>
-                </a>
-                <div id="collapseTwo" class="collapse" role="tabpanel">
-                  <p class="emailBody">This is the song that never ends and it goes on and on my friend. Some people
-                    started singing it
-                    not knowing what it was and they'll continue singing it forever just because this is the song that
-                    never ends
-                  </p>
-                  <p class="emailBody">
-                    This is the song that never ends and it goes on and on my friend. Some people started singing it
-                    not knowing what it
-                    was and they'll continue singing it forever just because this is the song that never ends
-                  </p>
-                  <br><br><br>
-                  <button type="submit" class="customBtn">
-                    REPLY
-                  </button>
-                  <button type="submit" class="customBtn">
-                    FORWARD
-                  </button>
-                  <br>
-                  <div class="replyFrm">
-                    <form>
-                      <div class="form-group">
-                        <label>Reply:</label>
-                        <textarea name="message" placeholder="Type your message..." class="form-control" rows="6"></textarea>
-                      </div>
-                      <button class="customBtn closeGreen">Close</button>
-                      <button class="customBtn cPink">Send</button>
-                    </form>
-                  </div>
-                  <div class="forwardFrm">
-                    <form>
-                      <div class="form-group">
-                        <label for="forward-msg">Forward to:</label>
-                        <select class="form-control" name="FwdOptions">
-                          <option selected="" value="0" disabled="">Select a recipient</option>
-                          <option value="Triage Nurse">Triage Nurse</option>
-                          <option value="Recipient 2">Recipient 2</option>
-                          <option value="Recipient 3">Recipient 3</option>
-                          <option value="Recipient 4">Recipient 4</option>
-                        </select>
-
-                        <textarea name="fwdmessage" placeholder="Type your message..." class="form-control" rows="6"></textarea>
-
-                      </div>
-                      <button class="customBtn closeGreen">Close</button>
-                      <button class="customBtn cPink">Send</button>
-                    </form>
-                  </div>
-                  <br>
-                </div>
-                <br>
-                <span class="pull-right timestamp">
-                  <span class="badge"> August 31 </span>
+                  <span class="badge"> {{message?.messageDate | date: 'MMMM dd'}} </span>
                 </span>
               </div>
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </div>
