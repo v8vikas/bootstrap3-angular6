@@ -5,12 +5,14 @@ import { AddMessageComponent } from './add-message/add-message.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AddGroupMessageComponent } from './add-group-message/add-group-message.component';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   declarations: [
     MessagesComponent,
