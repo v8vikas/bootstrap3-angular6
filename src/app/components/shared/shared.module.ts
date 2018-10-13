@@ -4,12 +4,14 @@ import { SharedTableComponent } from './shared-table/shared-table.component';
 import { TitleHeaderComponent } from './title-header/title-header.component';
 import { InstructionComponent } from './model/instruction/instruction.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     SharedTableComponent,

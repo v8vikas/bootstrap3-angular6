@@ -1,51 +1,59 @@
 <!--======New Group Message======-->
+<app-title-header [title]="title"></app-title-header>
+<div *ngIf="message" class="alert alert-success alert-dismissible">
+  <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{message}}
+</div>
 <div class="newGroupMsg">
   <div class="container">
-    <h3 class="tableHeading">New Individual Message</h3>
     <div class="newGroupMsgFrm">
-      <form>
+      <form [formGroup]="messageForm">
         <div class="row form-group">
-          <div class="col-md-6 col-sm-6">
+          <div class="col-md-3 col-sm-3">
             <label>Send To:</label>
-            <input type="text" value="Misty Doe - #333333" class="form-control" />
+            <select formControlName='user' class="form-control" name="TemplateOptions">
+              <option value="" disabled>Select a template</option>
+              <option *ngFor="let user of allUsers;" [ngValue]="user" class="option1">
+                {{user?.firstName}} {{user?.lastName}}
+              </option>
+            </select>
           </div>
         </div>
         <div class="row form-group">
           <div class="col-md-3 col-sm-3">
-            <select class="form-control" name="TemplateOptions">
-              <option selected="" value="0" disabled="">Select a template</option>
-              <option value="1" class="option1">PIC Urgent Follow-up</option>
-              <option value="2" class="option2">Template Msg 2</option>
-              <option value="3" class="option3">Template Msg 3</option>
-              <option value="4" class="option4">Template Msg 4</option>
+            <select formControlName='template' [(ngModel)]="selectedtempale" class="form-control" name="TemplateOptions">
+              <option value="" disabled>Select a template</option>
+              <option *ngFor="let template of templates;" [ngValue]="template" class="option1">
+                {{template?.templateName}}
+              </option>
             </select>
           </div>
           <div class="col-md-9 col-sm-9">
-            <input type="text" placeholder="Subject" class="form-control" />
+            <input formControlName='subject' type="text" placeholder="Subject" class="form-control" />
           </div>
         </div>
         <div class="row form-group">
           <div class="col-md-12">
-            <textarea rows="6" readonly="" disabled class="form-control" placeholder="Select a template message from the dropdown menu.">This is template message number three.</textarea>
+            <textarea rows="6" readonly disabled placeholder="Select a template message from the dropdown menu." class="form-control">{{
+                selectedtempale?.templateMessage
+              }}</textarea>
           </div>
         </div>
-        <br />
-        <br />
+        <div class="clearfix"></div>
         <div class="row form-group">
           <div class="col-md-12">
             <label>Include a secure message (optional):</label>
-            <textarea rows="6" class="form-control" placeholder="Write a message">This is template message number three.</textarea>
+            <textarea formControlName='secureMessage' rows="6" class="form-control" placeholder="Write a message">This is template message number three.</textarea>
           </div>
         </div>
-        <hr />
+        <hr/>
         <div class="groupBoxBtn text-right">
-          <button class="customBtn" value="Save" name="save" type="submit">Save</button>
-
-          <button class="customBtn" value="Schedule" name="schedule" type="submit">Schedule</button>
-
-          <button class="customBtn closeGreen" value="Close" name="close" type="submit">Close</button>
-
-          <button class="customBtn cPink" value="Send" name="send" type="submit">Send</button>
+          <button [ngClass]="{'disabled': !this.messageForm.valid}" class="customBtn" value="Save" name="save" type="submit" (click)="save()">Save</button>
+          <button [ngClass]="{'disabled': !this.messageForm.valid}" class="customBtn" value="Schedule" name="schedule" type="submit"
+            (click)="schedule()">Schedule</button>
+          <button class="customBtn closeGreen" value="Close" name="close" type="submit" (click)="close()">Close</button>
+          <button [ngClass]="{'disabled': !this.messageForm.valid}" class="customBtn cPink" value="Send" name="send" type="submit"
+            (click)="send()">Send</button>
         </div>
       </form>
     </div>
