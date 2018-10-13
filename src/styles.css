@@ -456,3 +456,11 @@ label {
     width: 30px;
   }
 }
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  opacity: .65;
+}
