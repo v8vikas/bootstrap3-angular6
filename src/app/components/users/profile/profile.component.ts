@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from '../../../services/patient/patient.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   title: string = "Profile";
-  constructor() { }
+  patient: any;
+  activeTestResult: any;
+
+  constructor(private patientService: PatientService) { }
 
   ngOnInit() {
+
+    this.loadPatient();
   }
 
+  loadPatient(): void {
+    this.patientService.getPatientRecord('id').subscribe((patient)=>{
+      console.log('patient', patient);
+      this.patient = patient;
+      this.activeTestResult = this.patient.testResults[0];
+    })
+  }
+
+  scroll(el) {
+    el.scrollIntoView({ behavior: 'smooth' , block: 'start'});
+  }
 }

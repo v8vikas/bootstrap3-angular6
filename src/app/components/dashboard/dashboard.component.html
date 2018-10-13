@@ -1,5 +1,6 @@
 <div class="patientPSection">
   <app-title-header [title]="title"></app-title-header>
+  <!-- search container -->
   <div class="container">
     <form class="patientFrm">
       <div class="row">
@@ -25,7 +26,7 @@
         </div>
         <div class="col-md-2 col-sm-2">
           <div class="form-group">
-            <button type="submit" class="customBtn ">
+            <button (click)="findPatients()" type="submit" class="customBtn ">
               SEARCH
             </button>
           </div>
@@ -36,11 +37,10 @@
 </div>
 
 
-
 <!--======Displaying search results for last name "Doe".======-->
-<div class="displaySrchTable">
+<div class="displaySrchTable" *ngIf="patients && patients.length">
   <div class="container">
-    <h3 class="tableHeading">Displaying search results for last name "Doe".</h3>
+    <h3 class="tableHeading">Displaying search results for last name "{{query}}".</h3>
     <div class="displayMainTable table-responsive">
       <table class="table table-bordered">
         <thead>
@@ -51,124 +51,32 @@
             <th>EMR ID</th>
             <th>Date of Birth</th>
             <th>Date of Visit</th>
-            <th>Actions</th>
+            <th class="text-center">Actions</th>
             <th>
-              <input type="checkbox" id="checkAllCheck" />
+              <input [checked]="allSelected" (change)="addRemoveAll($event)" type="checkbox" id="checkAllCheck" />
               <label for="checkAllCheck"></label>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Doe</td>
-            <td>Jonathan</td>
-            <td>999999</td>
-            <td>10/15/67</td>
-            <td>03/08/18</td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
+          <tr *ngFor="let patient of patients; let index = index">
+            <td>{{index + 1}}.</td>
+            <td>{{patient?.firstName}}</td>
+            <td>{{patient?.lastName}}</td>
+            <td>{{patient?.patientRegKey}}</td>
+            <td>{{patient?.dob}}</td>
+            <td>{{patient?.dov}}</td>
+            <td class="text-center">
+              <a href="javascript:void(0)" class="userProfile">
+                <i [routerLink]="['/patient', patient.patientRegKey]" class="fa fa-user"></i>
+              </a>
+              <a href="javascript:void(0)" class="userEdit">
+                <i (change)="newIndividualMessage(patient)" class="fa fa-edit"></i>
+              </a>
             </td>
             <td>
-              <input type="checkbox" id="displaying1" />
-              <label for="displaying1"></label>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Doe</td>
-            <td>Eliza</td>
-            <td>888888</td>
-            <td>12/07/90 </td>
-            <td>01/12/18 </td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>
-              <input type="checkbox" id="displaying2" />
-              <label for="displaying2"></label>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Doe</td>
-            <td>Shirley</td>
-            <td>777777</td>
-            <td>04/03/50</td>
-            <td>01/12/18</td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>
-              <input type="checkbox" id="displaying3" />
-              <label for="displaying3"></label>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Doe</td>
-            <td>Joe</td>
-            <td>666666</td>
-            <td>08/08/75 </td>
-            <td>03/08/18 </td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>
-              <input type="checkbox" id="displaying4" />
-              <label for="displaying4"></label>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Doe</td>
-            <td>Cameron</td>
-            <td>555555</td>
-            <td>02/20/63</td>
-            <td>01/12/18 </td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>
-              <input type="checkbox" id="displaying5" />
-              <label for="displaying5"></label>
-            </td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Doe</td>
-            <td>Molly</td>
-            <td>444444</td>
-            <td>04/09/49 </td>
-            <td>03/08/18 </td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>
-              <input type="checkbox" id="displaying6" />
-              <label for="displaying6"></label>
-            </td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Doe</td>
-            <td>Misty</td>
-            <td>333333</td>
-            <td>06/30/48</td>
-            <td>03/08/18 </td>
-            <td>
-              <a href="" class="userProfile"><i class="fa fa-user"></i></a>
-              <a href="#" class="userEdit"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>
-              <input type="checkbox" id="displaying7" />
-              <label for="displaying7"></label>
+              <input (change)="addRemove($event, patient)" [checked]="allSelected || patient?.isChecked" type="checkbox" id="displaying_{{index}}" />
+              <label for="displaying_{{index}}"></label>
             </td>
           </tr>
         </tbody>
