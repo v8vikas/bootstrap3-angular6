@@ -80,7 +80,7 @@
   top: 25px;
 }
 
-#level2-accordion #headingOne {
+.level2-accordion #headingOne {
   background-color: #1ebcbe !important;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1ebcbe), to(#0087be)) !important;
 }
@@ -95,19 +95,19 @@
   color: #fff;
 }
 
-#level2-accordion .panel-default {
+.level2-accordion .panel-default {
   border: none;
 }
 
-#level2-accordion .panel-default a:hover {
+.level2-accordion .panel-default a:hover {
   color: #fff;
 }
 
-#level2-accordion .panel-body {
+.level2-accordion .panel-body {
   background: #fff;
 }
 
-#level2-accordion .panel+.panel {
+.level2-accordion .panel+.panel {
   margin-top: 0px;
 }
 
