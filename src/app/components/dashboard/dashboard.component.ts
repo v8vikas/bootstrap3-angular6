@@ -1,59 +1,106 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../../services/patient/patient.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as _ from 'lodash';
+import { MessagesService } from '../../services/messages/messages.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   title: string = "Sexual Health Patient Portal"
   patients: any[] = [];
   selectedPatirent: any;
-  selectedPatirents: any[] = [];
+  selectedPatients: any[] = [];
   allSelected: boolean = false;
+  searchForm: FormGroup;
+  type: string = '';
+  isOptionChecked: boolean;
+  message: string = '';
 
-  constructor(private patientService: PatientService) { }
+  constructor(
+    private patientService: PatientService,
+    private messagesService: MessagesService,
+    private fb: FormBuilder
+  ) {
+    this.searchForm = this.fb.group({
+      lastName: [''],
+      emr: [''],
+      dob: [''],
+      dov: [''],
+    });
+
+    this.messagesService.onClose.subscribe(() => {
+      this.selectedPatients = [];
+    })
+
+    this.messagesService.onSuccess.subscribe((type) => {
+      this.selectedPatients = [];
+      this.message = `Message ${type} successfully.`
+    })
+
+  }
 
   findPatients(): void {
-    this.patientService.findPatients({}).subscribe((patients) => {
+    var searchBy = _.omitBy(this.searchForm.value, (value) => {
+      return !value;
+    })
+
+    this.patientService.findPatients(searchBy).subscribe((patients) => {
       this.patients = patients;
+      this.patients = this.changeAllCheckedStatus(false);
     })
   }
 
   newIndividualMessage(patient: any): void {
-    this.selectedPatirent = patient;
+    this.type = 'Individual';
+    this.selectedPatients = [patient];
+  }
+
+  newGroupIndividualMessage(): void {
+    this.type = 'Group';
+    this.selectedPatients = this.getAllCheckedPatients();
   }
 
   addRemove(event: any, patient: any): void {
-    const selectedIndex = this.selectedPatirents.findIndex((v) => v.patientRegKey === patient.patientRegKey);
+
     const patientIndex = this.patients.findIndex((v) => v.patientRegKey === patient.patientRegKey);
-    this.patients[patientIndex].isChecked = this.patients[patientIndex].isChecked;
-    if (event.target.checked) {
-      this.selectedPatirents.push(patient);
-    } else {
-      this.selectedPatirents.splice(selectedIndex, 1);
+    if (patientIndex !== -1) {
+      this.patients[patientIndex].isChecked = event.target.checked;
     }
 
-    if (this.selectedPatirents.length === this.patients.length) {
+    const checkedIndexes = this.getAllCheckedPatients();
+
+    if (checkedIndexes && checkedIndexes.length) {
+      this.isOptionChecked = true;
+    } else {
+      this.isOptionChecked = null;
+    }
+
+    if (checkedIndexes.length === this.patients.length) {
       this.allSelected = true;
     } else {
       this.allSelected = false;
     }
   }
 
+  getAllCheckedPatients(): any[] {
+    return this.patients.filter((v) => v.isChecked);
+  }
+
   addRemoveAll(event: any): void {
-    this.allSelected = !this.allSelected;
-    if (event.target.checked) {
-      this.patients = this.changeAllCheckedStatus(true);
-      this.selectedPatirents = new Array(this.patients);
+    this.allSelected = event.target.checked;
+
+    if (this.allSelected) {
+      this.isOptionChecked = true;
     } else {
-      this.patients = this.changeAllCheckedStatus(false);
-      this.selectedPatirents = [];
+      this.isOptionChecked = null;
     }
 
-    this.selectedPatirent = null;
+    this.patients = this.changeAllCheckedStatus(this.allSelected);
   }
 
   changeAllCheckedStatus(value: boolean): any[] {
@@ -61,9 +108,6 @@ export class DashboardComponent implements OnInit {
       v['isChecked'] = value;
       return v;
     });
-  }
-
-  ngOnInit() {
   }
 
 }

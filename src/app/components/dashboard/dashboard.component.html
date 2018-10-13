@@ -2,31 +2,31 @@
   <app-title-header [title]="title"></app-title-header>
   <!-- search container -->
   <div class="container">
-    <form class="patientFrm">
+    <form  class="patientFrm" (ngSubmit)="findPatients()" [formGroup]="searchForm">
       <div class="row">
         <div class="col-md-4 col-sm-4">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Last Name">
+            <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name">
           </div>
         </div>
         <div class="col-md-2 col-sm-2">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="EMR #">
+            <input formControlName="emr" type="text" class="form-control" placeholder="EMR #">
           </div>
         </div>
         <div class="col-md-2 col-sm-2">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Date of Birth">
+            <input formControlName="dob" type="text" class="form-control" placeholder="Date of Birth">
           </div>
         </div>
         <div class="col-md-2 col-sm-2">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Date of Visit">
+            <input formControlName="dov" type="text" class="form-control" placeholder="Date of Visit">
           </div>
         </div>
         <div class="col-md-2 col-sm-2">
           <div class="form-group">
-            <button (click)="findPatients()" type="submit" class="customBtn ">
+            <button type="submit" class="customBtn">
               SEARCH
             </button>
           </div>
@@ -40,7 +40,12 @@
 <!--======Displaying search results for last name "Doe".======-->
 <div class="displaySrchTable" *ngIf="patients && patients.length">
   <div class="container">
-    <h3 class="tableHeading">Displaying search results for last name "{{query}}".</h3>
+    <div *ngIf="message" class="alert alert-success alert-dismissible">
+      <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{message}}
+    </div>
+
+    <h3 class="tableHeading">Displaying search results: </h3>
     <div class="displayMainTable table-responsive">
       <table class="table table-bordered">
         <thead>
@@ -71,24 +76,25 @@
                 <i [routerLink]="['/patient', patient.patientRegKey]" class="fa fa-user"></i>
               </a>
               <a href="javascript:void(0)" class="userEdit">
-                <i (change)="newIndividualMessage(patient)" class="fa fa-edit"></i>
+                <i (click)="newIndividualMessage(patient)" class="fa fa-edit"></i>
               </a>
             </td>
             <td>
-              <input (change)="addRemove($event, patient)" [checked]="allSelected || patient?.isChecked" type="checkbox" id="displaying_{{index}}" />
+              <input (change)="addRemove($event, patient)" [checked]="patient?.isChecked" type="checkbox" id="displaying_{{index}}" />
               <label for="displaying_{{index}}"></label>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="groupBoxBtn text-right"><a class="customBtn" href="">GROUP MESSAGE</a></div>
+    <div class="groupBoxBtn text-right">
+      <a [ngClass]="{'disabled': !isOptionChecked}" class="customBtn" href="javascript:void(0)" (click)="newGroupIndividualMessage()">GROUP MESSAGE</a>
+    </div>
   </div>
 </div>
 <!--======Displaying search results for last name "Doe".======-->
-
-
-
-
-<app-add-group-message></app-add-group-message>
-<app-add-message></app-add-message>
+<app-send
+  *ngIf="selectedPatients && selectedPatients.length"
+  [type]="type"
+  [selectedPatients] = "selectedPatients">
+</app-send>
