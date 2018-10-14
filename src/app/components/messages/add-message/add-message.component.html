@@ -1,11 +1,12 @@
 <!--======New Group Message======-->
 <app-title-header [title]="title"></app-title-header>
-<div *ngIf="message" class="alert alert-success alert-dismissible">
-  <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  {{message}}
-</div>
+
 <div class="newGroupMsg">
   <div class="container">
+    <div *ngIf="message" class="alert alert-success alert-dismissible">
+      <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{message}}
+    </div>
     <div class="newGroupMsgFrm">
       <form [formGroup]="messageForm">
         <div class="row form-group">
