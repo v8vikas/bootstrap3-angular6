@@ -25,8 +25,15 @@ export class UsersService {
     return this.httpService.post('users', data);
   }
 
-  deleteUser(id: number): Observable<any> {
+  deleteUser(user: any): Observable<any> {
     // pass id in the delete 
+    let id;
+    // @TODO change the "id" with networkId. if needed.
+    if(user.id) {
+      id = user.id
+    } else {
+      id = user.networkId
+    }
     return this.httpService.delete(`users/${id}`);
   }
 

@@ -25,8 +25,8 @@ export class UserListComponent {
     })
   }
 
-  deleteUser(id: number): void {
-    this.userService.deleteUser(id).subscribe((response)=>{
+  deleteUser(user: any): void {
+    this.userService.deleteUser(user).subscribe((response)=>{
       this.loadUsers();
     })
   }
