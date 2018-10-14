@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedTableComponent } from './shared-table/shared-table.component';
 import { TitleHeaderComponent } from './title-header/title-header.component';
 import { InstructionComponent } from './model/instruction/instruction.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +13,6 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [
-    SharedTableComponent,
     TitleHeaderComponent,
     InstructionComponent
   ],
@@ -24,7 +22,6 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
 
 
-    SharedTableComponent,
     TitleHeaderComponent,
     InstructionComponent
   ]
