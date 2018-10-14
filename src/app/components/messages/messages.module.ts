@@ -5,6 +5,8 @@ import { AddMessageComponent } from './add-message/add-message.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
 import { SendComponent } from './send/send.component';
+import { ReplyComponent } from './messages/reply/reply.component';
+import { ForwardComponent } from './messages/forward/forward.component';
 
 @NgModule({
   imports: [
@@ -15,12 +17,16 @@ import { SendComponent } from './send/send.component';
   declarations: [
     MessagesComponent,
     AddMessageComponent,
-    SendComponent
+    SendComponent,
+    ReplyComponent,
+    ForwardComponent
   ],
   exports: [
     MessagesComponent,
     AddMessageComponent,
-    SendComponent
+    SendComponent,
+    ReplyComponent,
+    ForwardComponent
   ]
 })
 export class MessagesModule { }

@@ -1,0 +1,10 @@
+<div *ngIf="message?.reply" class="replyFrm">
+  <form [formGroup]="messageForm">
+    <div class="form-group">
+      <label>Reply:</label>
+      <textarea formControlName="message" name="message" placeholder="Type your message..." class="form-control" rows="6"></textarea>
+    </div>
+    <button class="customBtn closeGreen">Close</button>
+    <button (click)="save()" class="customBtn cPink">Send</button>
+  </form>
+</div>

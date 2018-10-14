@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
 
   loadPatient(): void {
     this.patientService.getPatientRecord('id').subscribe((patient)=>{
-      console.log('patient', patient);
       this.patient = patient;
       this.activeTestResult = this.patient.testResults[0];
     })

@@ -1,0 +1,14 @@
+<div class="forwardFrm" *ngIf="message?.forward">
+  <form>
+    <div class="form-group">
+      <label for="forward-msg">Forward to:</label>
+      <select class="form-control" name="FwdOptions">
+        <option selected value="" disabled>Select a recipient</option>
+        <option *ngFor="let user of users" [ngValue]="user">{{user.firstName}} {{user.lastName}}</option>
+      </select>
+      <textarea name="fwdmessage" placeholder="Type your message..." class="form-control" rows="6"></textarea>
+    </div>
+    <button class="customBtn closeGreen">Close</button>
+    <button class="customBtn cPink">Send</button>
+  </form>
+</div>

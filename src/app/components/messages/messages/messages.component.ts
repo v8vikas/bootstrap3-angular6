@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../../services/messages/messages.service';
 import { MessageCollection } from '../../../models/message-collection';
+import { UsersService } from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-messages',
@@ -9,7 +10,7 @@ import { MessageCollection } from '../../../models/message-collection';
 })
 export class MessagesComponent implements OnInit {
   title: string = 'Physician Inbox';
-
+  users: any[] = [];
   allMessages: MessageCollection;
   selectedTab: string = 'inbox';
   pagination: any = {
@@ -17,15 +18,25 @@ export class MessagesComponent implements OnInit {
     pageSize: 50
   }
 
-  constructor(private messageServices: MessagesService) { }
+  constructor(
+    private messageServices: MessagesService,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit() {
-    this.loadMessages()
+    this.loadMessages();
+    this.loadUsers();
   }
 
   loadMessages(): void {
     this.messageServices.getMessages().subscribe((messages: any[])=>{
       this.allMessages = new MessageCollection(messages);
+    });
+  }
+
+  loadUsers(): void {
+    this.usersService.getAllUsers().subscribe((users: any[])=>{
+      this.users = users;
     });
   }
 

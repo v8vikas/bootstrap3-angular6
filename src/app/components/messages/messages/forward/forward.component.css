@@ -1,0 +1,9 @@
+.forwardFrm select {
+  margin-bottom: 10px;
+}
+
+.forwardFrm label,
+.replyFrm label {
+  margin-bottom: 4px;
+  font-size: 15px;
+}

@@ -12,7 +12,7 @@
           <div class="col-md-3 col-sm-3">
             <label>Send To:</label>
             <select formControlName='user' class="form-control" name="TemplateOptions">
-              <option value="" disabled>Select a template</option>
+              <option value="" disabled>Select a recipient</option>
               <option *ngFor="let user of allUsers;" [ngValue]="user" class="option1">
                 {{user?.firstName}} {{user?.lastName}}
               </option>
