@@ -28,6 +28,7 @@
   width: 100%;
   margin-top: -1px;
   font-size: 16px;
+  text-transform: capitalize;
 }
 
 .msgSidebar ul .active a {
@@ -82,6 +83,8 @@
 
 .level2-accordion #headingOne {
   background-color: #1ebcbe !important;
+  border-radius: 5px;
+  border: 1px solid #fff;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1ebcbe), to(#0087be)) !important;
 }
 
@@ -214,13 +217,13 @@ h4.panel-title.collapsed:after {
   line-height: 20px;
 }
 
-.vctnInr table {
+/* .vctnInr table {
   border-top: 2px solid #eee;
-}
+} */
 
 .vctnInr th {
   font-size: 16px;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
 }
 
 .refferalDesign th,
@@ -233,10 +236,11 @@ h4.panel-title.collapsed:after {
   vertical-align: middle;
 }
 
+/* 
 .vctnInr table tbody tr:nth-child(odd),
 .refferalDesign table tbody tr:nth-child(odd) {
   background: #eee;
-}
+} */
 
 .refferalDesign,
 .reportDesign {

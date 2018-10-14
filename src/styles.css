@@ -203,7 +203,7 @@ input[type=radio]:focus {
 }
 
 table i {
-  color: #000;
+  color: #1770b7;
   transition: 300ms all;
 }
 
@@ -365,8 +365,17 @@ label {
   margin-left: 11px;
 }
 
-.displayMainTable tbody tr:nth-child(odd) {
-  background: #f2f2f2;
+tbody tr:nth-child(odd) {
+  background: #d1f2f2;
+}
+
+.displayMainTable .table>tbody>tr>td {
+  border-top: 0;
+}
+
+
+.table>tbody>tr>td {
+  font-weight: 600;
 }
 
 
@@ -379,6 +388,7 @@ label {
   width: 100%;
   font-weight: 600;
   font-size: 16px;
+  text-transform: capitalize;
 }
 
 .msgSidebar ul .active a,
@@ -464,3 +474,33 @@ label {
   box-shadow: none;
   opacity: .65;
 }
+
+.form-control {
+  border: 2px solid #ccc !important;
+}
+
+
+.customTb tbody tr:nth-child(odd) {
+  background: transparent;
+}
+
+
+.customTb th {
+  border-bottom-width: 0 !important;
+}
+
+.customTb tbody tr td {
+  padding: 25px 10px;
+  border: 1px solid #ccc !important;
+}
+
+.refferalDesign .displayMainTable td,
+.refferalDesign .displayMainTable th,
+.reportDesign .displayMainTable td,
+.reportDesign.displayMainTable th {
+  padding: 18px 10px;
+}
+
+/* .refferalDesign .displayMainTable td {
+  border: 1px solid #ccc !important;
+} */
