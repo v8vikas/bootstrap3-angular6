@@ -9,10 +9,10 @@
         <hr>
         <div class="tabPanel">
           <div [ngClass]="{'active': selectedTab === 'inbox'}">
-            <a (click)="(selectedTab = 'inbox')"><span class="badge pull-right">{{allMessages?.getInboxMessagesReadCount()}}</span> Inbox</a>
+            <a (click)="setMessages('inbox')"><span class="badge pull-right">{{allMessages?.getInboxMessagesReadCount()}}</span> Inbox</a>
           </div>
           <div [ngClass]="{'active': selectedTab === 'sent'}">
-            <a (click)="(selectedTab = 'sent')">Sent</a>
+            <a (click)="setMessages('sent')">Sent</a>
           </div>
         </div>
         <hr>
@@ -43,19 +43,19 @@
             <div class="col-sm-5 col-md-6 col-xs-5">
               <div class="inlineBtn">
                 <button class="btnCstm fixWdth">
-                  <input id="checkAllCheck" type="checkbox">
+                  <input (change)="selectedAll($event)" [checked]="allSelected" id="checkAllCheck" type="checkbox">
                   <label for="checkAllCheck"></label>
                 </button>
                 <div class="dropdown">
                   <button class="btnCstm dropdown-toggle" type="button" data-toggle="dropdown">
                     <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Read</a></li>
-                    <li><a href="#">Unread</a></li>
+                    <li (click)="changeSection('all')"><a href="javascript:void(0);">All</a></li>
+                    <li (click)="changeSection('read')"><a href="javascript:void(0);">Read</a></li>
+                    <li (click)="changeSection('unread')"><a href="javascript:void(0);">Unread</a></li>
                   </ul>
                 </div>
-                <button class="btnCstm">
+                <button (click)="deleteMessages()" class="btnCstm">
                   <i class="fa fa-trash"></i>
                 </button>
               </div>
@@ -68,12 +68,12 @@
                 <div class="btn-group btn-group-sm">
                   <button
                     [ngClass]="{'disabled': (pagination.page < 2 )}"
-                    (click)="(pagination.page = (pagination.page - 1))" type="button" class="btnCstm">
+                    (click)="(pagination.page = (pagination.page - 1)); changePage()" type="button" class="btnCstm">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                   </button>
                   <button
                     [ngClass]="{'disabled': ((pagination.page * pagination.pageSize - 1) >= allMessages?.getTotalCount(selectedTab))}"
-                    (click)="(pagination.page = (pagination.page + 1))" type="button" class="btnCstm">
+                    (click)="(pagination.page = (pagination.page + 1)); changePage()" type="button" class="btnCstm">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                   </button>
                 </div>
@@ -82,13 +82,11 @@
           </div>
           <hr class="divider"/>
           <div
-            *ngFor="let message of allMessages?.getActiveMessages(
-              selectedTab, pagination.pageSize, pagination.page
-            ); let index = index;"
+            *ngFor="let message of messages; let index = index;"
             class="row listMsg">
             <div class="col-sm-12 col-md-3">
               <div class="userNCheck">
-                <input [attr.id]="('checkAll' + index)" type="checkbox">
+                <input (change)="addRemove($event, message)" [checked]="message?.isChecked" [attr.id]="('checkAll' + index)" type="checkbox">
                 <label [attr.for]="('checkAll' + index)"></label>
                 <a [attr.href]="('#collapse' + index)" data-toggle="collapse" data-parent="#accordion">
                   <span class="name">{{message?.clinician}}</span>

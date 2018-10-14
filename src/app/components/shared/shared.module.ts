@@ -20,8 +20,6 @@ import { RouterModule } from '@angular/router';
     // common modules.
     FormsModule,
     ReactiveFormsModule,
-
-
     TitleHeaderComponent,
     InstructionComponent
   ]

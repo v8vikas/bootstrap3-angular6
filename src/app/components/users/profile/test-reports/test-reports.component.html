@@ -9,7 +9,7 @@
         <ul class="list-unstyled">
           <li (click)="activeTestResult = testResult" [ngClass]="{'active': (activeTestResult?.categoryName === testResult.categoryName)}"
             *ngFor="let testResult of testResults; let i = index;">
-            <a href="javascript:void(0)"> <span class="badge pull-right">1</span>{{testResult?.categoryName}}</a>
+            <a href="javascript:void(0)"> <span class="badge pull-right">{{testResult?.testsByDates?.length || 0}}</span>{{testResult?.categoryName}}</a>
           </li>
         </ul>
       </div>

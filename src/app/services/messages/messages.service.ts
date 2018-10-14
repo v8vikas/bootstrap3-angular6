@@ -20,4 +20,12 @@ export class MessagesService {
   sendGroupMessage(params: any): Observable<any> {
     return this.httpService.post('sendGroupMessage', params);
   }
+
+  deleteMessages(messagesIds: any[]): Observable<any> {
+    const params = {
+      messagesIds
+    }
+    // @TODO Change message type if needed.
+    return this.httpService.post('deleteMessages', params);
+  }
 }
