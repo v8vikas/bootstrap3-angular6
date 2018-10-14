@@ -228,14 +228,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let referral of patient?.referrals" class="item">
+                  <tr *ngFor="let referral of patient?.referrals; let index = index;" class="item">
                     <td class="col-xs-2">{{referral?.appointmentDate | date: 'shortDate'}}</td>
                     <td class="col-xs-10">
                       <div>
                         <div role="tab">
-                          <a href="#collapseAA" data-toggle="collapse" data-parent="#accordion">{{referral?.referralOtherLocation}}</a>
+                          <a [attr.href]="('#refferal-collapse'+ index)" data-toggle="collapse" data-parent="#accordion">{{referral?.referralOtherLocation}}</a>
                         </div>
-                        <div id="collapseAA" class="collapse" role="tabpanel">
+                        <div [attr.id]="('refferal-collapse' + index)" class="collapse" role="tabpanel">
                           <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.</p>
                           <p>Please call
                             <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
@@ -256,7 +256,7 @@
           <div class="col-sm-12">
             <h3 class="headingIcon">
               <i class="fa fa-file-text fa-1x"></i>&nbsp;Reports</h3>
-            <div class="displayMainTable table-responsive ">
+            <div class="displayMainTable table-responsive">
               <table class="table sortable">
                 <thead>
                   <tr>

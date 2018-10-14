@@ -9,10 +9,10 @@
         <hr>
         <div class="tabPanel">
           <div [ngClass]="{'active': selectedTab === 'inbox'}">
-            <a (click)="(selectedTab = 'inbox')"><span class="badge pull-right">{{allMessages?.getInboxMessagesReadCount()}}</span> Inbox </a>
+            <a (click)="(selectedTab = 'inbox')"><span class="badge pull-right">{{allMessages?.getInboxMessagesReadCount()}}</span> Inbox</a>
           </div>
           <div [ngClass]="{'active': selectedTab === 'sent'}">
-            <a (click)="(selectedTab = 'sent')"><span class="badge pull-right">{{allMessages?.getSentMessagesReadCount()}}</span> Sent </a>
+            <a (click)="(selectedTab = 'sent')">Sent</a>
           </div>
         </div>
         <hr>
