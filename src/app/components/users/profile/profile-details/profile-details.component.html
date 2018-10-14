@@ -1,0 +1,32 @@
+<div class="profilePage scrollDown" id="pofilePageId" #pofilePage>
+  <h3 class="headingIcon">
+    <i class="fa fa-user"></i> Patient Profile</h3>
+  <div class="patientProfile">
+    <div class="row profile">
+      <div class="col-sm-4">
+        <p>{{patientModal?.firstName}} {{patientModal?.lastName}}</p>
+        <p>
+          <b>Date of Birth:</b> {{patientModal?.dob| date: 'medium'}}</p>
+        <p>
+          <b>EMR:</b> {{patientModal?.patientRegKey}}</p>
+      </div>
+      <div class="col-sm-4">
+        <p>{{patientModal?.apartment}} {{patientModal?.streetAddress}}</p>
+        <p>{{patientModal?.city}}, {{patientModal?.state}}, {{patientModal?.zip}}</p>
+        <p>
+          <b>Phone:</b> {{patientModal?.phone}}</p>
+      </div>
+      <div class="col-sm-4">
+        <p>
+          <b>Email:</b> {{patientModal?.email}}</p>
+        <p>
+          <b>Emergency Contact:</b> {{patientModal?.emergencyContact}}</p>
+        <p>
+          <b>Emergency Phone:</b> {{patientModal?.emergencyPhone}}</p>
+      </div>
+      <div class="col-sm-4 btnSrch text-left">
+        <a class="customBtn cPink" [routerLink]="['/add-message']">Send a message</a>
+      </div>
+    </div>
+  </div>
+</div>

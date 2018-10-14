@@ -1,0 +1,31 @@
+<div class="reportDesign scrollDown" id="repoDesignId" #repoDesign>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="headingIcon">
+        <i class="fa fa-file-text fa-1x"></i>&nbsp;Reports</h3>
+      <div class="displayMainTable table-responsive">
+        <table class="table sortable">
+          <thead>
+            <tr>
+              <th data-dateformat="MM/DD/YY">Date</th>
+              <th colspan="2">Report</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let report of reports" class="item">
+              <td class="col-xs-2">{{report?.reportDate | date : 'shortDate'}}</td>
+              <td class="col-xs-8">
+                <a href="javascript:void(0);">{{report?.reportName}}
+                  <!-- <p class="subheading">Public Health Labs</p> -->
+                </a>
+              </td>
+              <td class="col-xs-2">
+                <i class="fa fa-file-pdf-o"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

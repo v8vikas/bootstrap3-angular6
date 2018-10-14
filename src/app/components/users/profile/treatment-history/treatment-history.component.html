@@ -1,0 +1,87 @@
+<div class="tabDesign scrollDown" id="tabDesignId">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="headingIcon">
+        <i class="fa fa-medkit fa-1x"></i>&nbsp;Treatment History</h3>
+    </div>
+    <div class="col-sm-12">
+      <div class="tabAcrdn">
+        <div class="panel-group" id="vaccinations-level1-accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#vaccinations-level1-accordion"
+                href="#vaccinations">
+                <i class="fa fa-stethoscope fa-2x"></i>Vaccinations
+                <span class="iosbContent">new</span>
+              </h4>
+            </div>
+            <div id="vaccinations" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div *ngFor="let vaccination of patient?.treatmentHistory?.vaccinations" class="vctnInr">
+                  <h5 class="vctnTitle">{{vaccination?.vaccineName}}</h5>
+                  <div class="displayMainTable table-responsive ">
+                    <table class="table vaccines">
+                      <thead>
+                        <tr>
+                          <th>Date of Vaccine</th>
+                          <th>Next Vaccine Due</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
+                          <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-group" id="medications-level1-accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#medications-level1-accordion"
+                  href="#medications">
+                  <i class="fa fa-heartbeat fa-2x"></i>Medications
+                  <span class="iosbContent">new</span>
+                </h4>
+              </div>
+              <div id="medications" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="vctnInr">
+                    <div class="displayMainTable table-responsive ">
+                      <table class="table meds">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Generic Name (Brand Name)</th>
+                            <th>Strength</th>
+                            <th>Dose</th>
+                            <th>Direction</th>
+                            <th>Qty. Dispensed</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let medication of patient?.treatmentHistory?.medications">
+                            <td class="col-xs-2">{{medication?.rxDate}}</td>
+                            <td class="col-xs-3">{{medication?.rxName}}</td>
+                            <td class="col-xs-1">{{medication?.rxFreq}}</td>
+                            <td class="col-xs-1">{{medication?.rxDose}}</td>
+                            <td class="col-xs-4">{{medication?.rxSig}}</td>
+                            <td class="col-xs-3">{{medication?.rxDosage}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

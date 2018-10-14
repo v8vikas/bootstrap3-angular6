@@ -1,0 +1,20 @@
+.reportDesign th {
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.referralsList td {
+  vertical-align: middle;
+}
+
+/* 
+.vctnInr table tbody tr:nth-child(odd),
+.refferalDesign table tbody tr:nth-child(odd) {
+  background: #eee;
+} */
+
+.reportDesign {
+  margin-top: 40px;
+  display: inline-block;
+  width: 100%;
+}

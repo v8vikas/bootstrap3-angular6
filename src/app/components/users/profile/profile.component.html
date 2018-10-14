@@ -3,300 +3,45 @@
 
   <div class="container">
     <!-- pofile section -->
-    <div class="profilePage scrollDown" id="pofilePageId" #pofilePage>
-      <h3 class="headingIcon">
-        <i class="fa fa-user"></i> Patient Profile</h3>
-      <div class="patientProfile">
-        <div class="row profile">
-          <div class="col-sm-4">
-            <p>{{patient?.patientModal?.firstName}} {{patient?.patientModal?.lastName}}</p>
-            <p>
-              <b>Date of Birth:</b> {{patient?.patientModal?.dob| date: 'medium'}}</p>
-            <p>
-              <b>EMR:</b> {{patient?.patientModal?.patientRegKey}}</p>
-          </div>
-          <div class="col-sm-4">
-            <p>{{patient?.patientModal?.apartment}} {{patient?.patientModal?.streetAddress}}</p>
-            <p>{{patient?.patientModal?.city}}, {{patient?.patientModal?.state}}, {{patient?.patientModal?.zip}}</p>
-            <p>
-              <b>Phone:</b> {{patient?.patientModal?.phone}}</p>
-          </div>
-          <div class="col-sm-4">
-            <p>
-              <b>Email:</b> {{patient?.patientModal?.email}}</p>
-            <p>
-              <b>Emergency Contact:</b> {{patient?.patientModal?.emergencyContact}}</p>
-            <p>
-              <b>Emergency Phone:</b> {{patient?.patientModal?.emergencyPhone}}</p>
-          </div>
-          <div class="col-sm-4 btnSrch text-left">
-            <a class="customBtn cPink" [routerLink]="['/add-message']">Send a message</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-profile-details *ngIf="patient?.patientModal" [patientModal]="patient?.patientModal" #profilePage></app-profile-details>
     <!-- pofile section -->
-    <!-- table design section -->
-    <div class="tableDesign scrollDown" id="tableDesignId" #tableDesign>
-      <div class="row">
-        <div class="col-xs-12">
-          <h3 class="headingIcon">
-            <i class="fa fa-check-circle fa-1x"></i>&nbsp;Test Results</h3>
-        </div>
-        <div *ngIf="patient?.testResults && patient?.testResults.length" class="col-md-3 noRightPad">
-          <div class="msgSidebar">
-            <ul class="list-unstyled">
-              <li (click)="activeTestResult = testResult" [ngClass]="{'active': (activeTestResult?.categoryName === testResult.categoryName)}"
-                *ngFor="let testResult of patient?.testResults; let i = index;">
-                <a href="javascript:void(0)"> <span class="badge pull-right">1</span>{{testResult?.categoryName}}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-9 noLeftPad">
-          <div class="panel panel-default">
-            <div class="panel-body nested-accordion">
-              <div class="row mt-10">
-                <div class="col-sm-12">
-                  <div *ngIf="activeTestResult" class="panel-group" id="level1-accordion">
-                    <div class="panel panelMain panel-default">
-                      <div class="panel-heading panelMainHead">
-                        <h4 class="panel-title" data-toggle="collapse" data-parent="#level1-accordion" href="#plast-pro-1">
-                          <a href="javascript:void(0);">
-                            {{activeTestResult?.categoryName}}
-                            <span *ngIf="activeTestResult?.newCount" class="iosbContent">new</span>
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="plast-pro-1" class="panel-collapse collapse in active">
-                        <div class="panel-body">
 
-                          <div *ngFor="let testByDate of activeTestResult?.testsByDates; let index = index" class="panel-group level2-accordion"
-                            [attr.id]="'accordion_' + index" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default">
-                              <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion_' + index"
-                                  [attr.href]="'#collapseOne_' + index">
-                                  <a>
-                                    Tested {{testByDate.visitDate | date: 'mediumDate'}}
-                                  </a>
-                                </h4>
-                              </div>
-                              <div [attr.id]="'collapseOne_' + index" class="panel-collapse collapse">
-                                <div class="panel-body nested">
-                                  <h3 class="TestResult">Test Result: Negative
-                                    <span class="follow-up">Follow-up: Make appointment with provider.</span>
-                                  </h3>
-                                  <div class="displayMainTable customTb table-responsive">
-                                    <table class="table">
-                                      <thead>
-                                        <tr>
-                                          <th class="th1">Test Performed</th>
-                                          <th class="th2">Result</th>
-                                          <th class="th3">Interpretation</th>
-                                          <th class="th4">Site</th>
-                                          <th class="th6">Post Date</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr *ngFor="let test of testByDate?.tests;">
-                                          <td>{{test?.testName}}</td>
-                                          <td>{{test?.result}}</td>
-                                          <td>Interpretation</td>
-                                          <td>{{test?.specimenSource}}</td>
-                                          <td>{{test?.visitDate | date: 'mediumDate'}}</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- table design section -->
+    <div #testReports>
+      <app-test-reports *ngIf="patient?.testResults" [activeTestResult]="activeTestResult" [testResults]="patient?.testResults"></app-test-reports>
     </div>
     <!-- table design section -->
-    <!-- tab section -->
-    <div class="tabDesign scrollDown" id="tabDesignId" #tabDesign>
-      <div class="row">
-        <div class="col-sm-12">
-          <h3 class="headingIcon">
-            <i class="fa fa-medkit fa-1x"></i>&nbsp;Treatment History</h3>
-        </div>
-        <div class="col-sm-12">
-          <div class="tabAcrdn">
-            <div class="panel-group" id="vaccinations-level1-accordion">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#vaccinations-level1-accordion"
-                    href="#vaccinations">
-                    <i class="fa fa-stethoscope fa-2x"></i>Vaccinations
-                    <span class="iosbContent">new</span>
-                  </h4>
-                </div>
-                <div id="vaccinations" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <div *ngFor="let vaccination of patient?.treatmentHistory?.vaccinations" class="vctnInr">
-                      <h5 class="vctnTitle">{{vaccination?.vaccineName}}</h5>
-                      <div class="displayMainTable table-responsive ">
-                        <table class="table vaccines">
-                          <thead>
-                            <tr>
-                              <th>Date of Vaccine</th>
-                              <th>Next Vaccine Due</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
-                              <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-group" id="medications-level1-accordion">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#medications-level1-accordion"
-                      href="#medications">
-                      <i class="fa fa-heartbeat fa-2x"></i>Medications
-                      <span class="iosbContent">new</span>
-                    </h4>
-                  </div>
-                  <div id="medications" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <div class="vctnInr">
-                        <div class="displayMainTable table-responsive ">
-                          <table class="table meds">
-                            <thead>
-                              <tr>
-                                <th>Date</th>
-                                <th>Generic Name (Brand Name)</th>
-                                <th>Strength</th>
-                                <th>Dose</th>
-                                <th>Direction</th>
-                                <th>Qty. Dispensed</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let medication of patient?.treatmentHistory?.medications">
-                                <td class="col-xs-2">{{medication?.rxDate}}</td>
-                                <td class="col-xs-3">{{medication?.rxName}}</td>
-                                <td class="col-xs-1">{{medication?.rxFreq}}</td>
-                                <td class="col-xs-1">{{medication?.rxDose}}</td>
-                                <td class="col-xs-4">{{medication?.rxSig}}</td>
-                                <td class="col-xs-3">{{medication?.rxDosage}}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- tab section -->
-      <!-- refferal section -->
-      <div class="refferalDesign scrollDown" id="reffDesignId" #reffDesign>
-        <div class="row">
-          <div class="col-sm-12">
-            <h3 class="headingIcon">
-              <i class="fa fa-calendar fa-1x"></i>&nbsp;Referrals</h3>
-            <div class="displayMainTable table-responsive ">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th data-dateformat="MM/DD/YY">Date</th>
-                    <th>Referrals</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let referral of patient?.referrals; let index = index;" class="item">
-                    <td class="col-xs-2">{{referral?.appointmentDate | date: 'shortDate'}}</td>
-                    <td class="col-xs-10">
-                      <div>
-                        <div role="tab">
-                          <a [attr.href]="('#refferal-collapse'+ index)" data-toggle="collapse" data-parent="#accordion">{{referral?.referralOtherLocation}}</a>
-                        </div>
-                        <div [attr.id]="('refferal-collapse' + index)" class="collapse" role="tabpanel">
-                          <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.</p>
-                          <p>Please call
-                            <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- refferal section -->
-      <!-- report section -->
-      <div class="reportDesign scrollDown" id="repoDesignId" #repoDesign>
-        <div class="row">
-          <div class="col-sm-12">
-            <h3 class="headingIcon">
-              <i class="fa fa-file-text fa-1x"></i>&nbsp;Reports</h3>
-            <div class="displayMainTable table-responsive">
-              <table class="table sortable">
-                <thead>
-                  <tr>
-                    <th data-dateformat="MM/DD/YY">Date</th>
-                    <th colspan="2">Report</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let report of patient?.reports" class="item">
-                    <td class="col-xs-2">{{report?.reportDate | date : 'shortDate'}}</td>
-                    <td class="col-xs-8">
-                      <a href="#">{{report?.reportName}}
-                        <!-- <p class="subheading">Public Health Labs</p> -->
-                      </a>
-                    </td>
-                    <td class="col-xs-2">
-                      <i class="fa fa-file-pdf-o"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- report section -->
+
+    <!-- treatment history section -->
+    <div #tabDesign>
+      <app-treatment-history *ngIf="patient?.treatmentHistory" [treatmentHistory]="patient?.treatmentHistory"></app-treatment-history>
     </div>
+    <!-- treatment history section -->
+
+    <!-- refferal section -->
+    <div #reffDesign>
+      <app-referrals *ngIf="patient?.referrals" [referrals]="patient?.referrals"></app-referrals>
+    </div>
+    <!-- refferal section -->
+
+    <!-- report section -->
+    <div #repoDesign>
+      <app-reports *ngIf="patient?.reports" [reports]="patient?.reports"></app-reports>
+    </div>
+    <!-- report section -->
 
     <div class="fixBtm">
       <div class="fixBtmInr">
         <ul>
           <li class="active">
-            <a (click)="scroll(pofilePage)">
+            <a (click)="scroll(profilePage)">
               <div class="text-center border-padding">
                 <i class="fa fa-user fa-2x"></i>
               </div>
             </a>
           </li>
           <li>
-            <a (click)="scroll(tableDesign)">
+            <a (click)="scroll(testReports)">
               <div class="text-center border-padding">
                 <i class="fa fa-check-circle fa-2x"></i>
               </div>
