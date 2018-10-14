@@ -2,7 +2,7 @@
   <app-title-header [title]="title"></app-title-header>
   <!-- search container -->
   <div class="container">
-    <form  class="patientFrm" (ngSubmit)="findPatients()" [formGroup]="searchForm">
+    <form class="patientFrm" (ngSubmit)="findPatients()" [formGroup]="searchForm">
       <div class="row">
         <div class="col-md-4 col-sm-4">
           <div class="form-group">
@@ -47,7 +47,7 @@
 
     <h3 class="tableHeading">Displaying search results: </h3>
     <div class="displayMainTable table-responsive">
-      <table class="table table-bordered">
+      <table class="table">
         <thead>
           <tr>
             <th></th>
@@ -88,13 +88,11 @@
       </table>
     </div>
     <div class="groupBoxBtn text-right">
-      <a [ngClass]="{'disabled': !isOptionChecked}" class="customBtn" href="javascript:void(0)" (click)="newGroupIndividualMessage()">GROUP MESSAGE</a>
+      <a [ngClass]="{'disabled': !isOptionChecked}" class="customBtn" href="javascript:void(0)" (click)="newGroupIndividualMessage()">GROUP
+        MESSAGE</a>
     </div>
   </div>
 </div>
 <!--======Displaying search results for last name "Doe".======-->
-<app-send
-  *ngIf="selectedPatients && selectedPatients.length"
-  [type]="type"
-  [selectedPatients] = "selectedPatients">
+<app-send *ngIf="selectedPatients && selectedPatients.length" [type]="type" [selectedPatients]="selectedPatients">
 </app-send>

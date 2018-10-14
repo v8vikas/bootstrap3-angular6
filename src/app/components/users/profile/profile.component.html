@@ -71,12 +71,13 @@
                       <div id="plast-pro-1" class="panel-collapse collapse in active">
                         <div class="panel-body">
 
-                          <div *ngFor="let testByDate of activeTestResult?.testsByDates; let index = index"
-                            class="panel-group level2-accordion" [attr.id]="'accordion_' + index" role="tablist" aria-multiselectable="true">
-                            <div  class="panel panel-default">
+                          <div *ngFor="let testByDate of activeTestResult?.testsByDates; let index = index" class="panel-group level2-accordion"
+                            [attr.id]="'accordion_' + index" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
                               <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion_' + index" [attr.href]="'#collapseOne_' + index">
-                                  <a >
+                                <h4 class="panel-title" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion_' + index"
+                                  [attr.href]="'#collapseOne_' + index">
+                                  <a>
                                     Tested {{testByDate.visitDate | date: 'mediumDate'}}
                                   </a>
                                 </h4>
@@ -86,15 +87,14 @@
                                   <h3 class="TestResult">Test Result: Negative
                                     <span class="follow-up">Follow-up: Make appointment with provider.</span>
                                   </h3>
-                                  <div class="displayMainTable table-responsive">
-                                    <table class="table-bordered table">
+                                  <div class="displayMainTable customTb table-responsive">
+                                    <table class="table">
                                       <thead>
                                         <tr>
                                           <th class="th1">Test Performed</th>
                                           <th class="th2">Result</th>
                                           <th class="th3">Interpretation</th>
                                           <th class="th4">Site</th>
-                                          <th class="th5">Report</th>
                                           <th class="th6">Post Date</th>
                                         </tr>
                                       </thead>
@@ -104,9 +104,6 @@
                                           <td>{{test?.result}}</td>
                                           <td>Interpretation</td>
                                           <td>{{test?.specimenSource}}</td>
-                                          <td>
-                                            <a href="javascript:void(0)">View Report</a>
-                                          </td>
                                           <td>{{test?.visitDate | date: 'mediumDate'}}</td>
                                         </tr>
                                       </tbody>
@@ -140,7 +137,8 @@
             <div class="panel-group" id="vaccinations-level1-accordion">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#vaccinations-level1-accordion" href="#vaccinations">
+                  <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#vaccinations-level1-accordion"
+                    href="#vaccinations">
                     <i class="fa fa-stethoscope fa-2x"></i>Vaccinations
                     <span class="iosbContent">new</span>
                   </h4>
@@ -149,20 +147,22 @@
                   <div class="panel-body">
                     <div *ngFor="let vaccination of patient?.treatmentHistory?.vaccinations" class="vctnInr">
                       <h5 class="vctnTitle">{{vaccination?.vaccineName}}</h5>
-                      <table class="table vaccines table-bordered">
-                        <thead>
-                          <tr>
-                            <th>Date of Vaccine</th>
-                            <th>Next Vaccine Due</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
-                            <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div class="displayMainTable table-responsive ">
+                        <table class="table vaccines">
+                          <thead>
+                            <tr>
+                              <th>Date of Vaccine</th>
+                              <th>Next Vaccine Due</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
+                              <td class="col-xs-6">{{vaccination?.nextDueDate| date : 'shortDate'}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -170,7 +170,8 @@
               <div class="panel-group" id="medications-level1-accordion">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#medications-level1-accordion" href="#medications">
+                    <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#medications-level1-accordion"
+                      href="#medications">
                       <i class="fa fa-heartbeat fa-2x"></i>Medications
                       <span class="iosbContent">new</span>
                     </h4>
@@ -178,28 +179,30 @@
                   <div id="medications" class="panel-collapse collapse">
                     <div class="panel-body">
                       <div class="vctnInr">
-                        <table class="table table-bordered meds">
-                          <thead>
-                            <tr>
-                              <th>Date</th>
-                              <th>Generic Name (Brand Name)</th>
-                              <th>Strength</th>
-                              <th>Dose</th>
-                              <th>Direction</th>
-                              <th>Qty. Dispensed</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let medication of patient?.treatmentHistory?.medications">
-                              <td class="col-xs-2">{{medication?.rxDate}}</td>
-                              <td class="col-xs-3">{{medication?.rxName}}</td>
-                              <td class="col-xs-1">{{medication?.rxFreq}}</td>
-                              <td class="col-xs-1">{{medication?.rxDose}}</td>
-                              <td class="col-xs-4">{{medication?.rxSig}}</td>
-                              <td class="col-xs-3">{{medication?.rxDosage}}</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div class="displayMainTable table-responsive ">
+                          <table class="table meds">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Generic Name (Brand Name)</th>
+                                <th>Strength</th>
+                                <th>Dose</th>
+                                <th>Direction</th>
+                                <th>Qty. Dispensed</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let medication of patient?.treatmentHistory?.medications">
+                                <td class="col-xs-2">{{medication?.rxDate}}</td>
+                                <td class="col-xs-3">{{medication?.rxName}}</td>
+                                <td class="col-xs-1">{{medication?.rxFreq}}</td>
+                                <td class="col-xs-1">{{medication?.rxDose}}</td>
+                                <td class="col-xs-4">{{medication?.rxSig}}</td>
+                                <td class="col-xs-3">{{medication?.rxDosage}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -216,31 +219,33 @@
           <div class="col-sm-12">
             <h3 class="headingIcon">
               <i class="fa fa-calendar fa-1x"></i>&nbsp;Referrals</h3>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th data-dateformat="MM/DD/YY">Date</th>
-                  <th>Referrals</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let referral of patient?.referrals" class="item">
-                  <td class="col-xs-2">{{referral?.appointmentDate | date: 'shortDate'}}</td>
-                  <td class="col-xs-10">
-                    <div>
-                      <div role="tab">
-                        <a href="#collapseAA" data-toggle="collapse" data-parent="#accordion">{{referral?.referralOtherLocation}}</a>
+            <div class="displayMainTable table-responsive ">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th data-dateformat="MM/DD/YY">Date</th>
+                    <th>Referrals</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let referral of patient?.referrals" class="item">
+                    <td class="col-xs-2">{{referral?.appointmentDate | date: 'shortDate'}}</td>
+                    <td class="col-xs-10">
+                      <div>
+                        <div role="tab">
+                          <a href="#collapseAA" data-toggle="collapse" data-parent="#accordion">{{referral?.referralOtherLocation}}</a>
+                        </div>
+                        <div id="collapseAA" class="collapse" role="tabpanel">
+                          <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.</p>
+                          <p>Please call
+                            <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
+                        </div>
                       </div>
-                      <div id="collapseAA" class="collapse" role="tabpanel">
-                        <p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis.</p>
-                        <p>Please call
-                          <span class="highlight">888-888-8888</span> to schedule an appointment.</p>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -251,27 +256,29 @@
           <div class="col-sm-12">
             <h3 class="headingIcon">
               <i class="fa fa-file-text fa-1x"></i>&nbsp;Reports</h3>
-            <table class="table table-bordered sortable">
-              <thead>
-                <tr>
-                  <th data-dateformat="MM/DD/YY">Date</th>
-                  <th colspan="2">Report</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let report of patient?.reports" class="item">
-                  <td class="col-xs-2">{{report?.reportDate | date : 'shortDate'}}</td>
-                  <td class="col-xs-8">
-                    <a href="#">{{report?.reportName}}
-                      <!-- <p class="subheading">Public Health Labs</p> -->
-                    </a>
-                  </td>
-                  <td class="col-xs-2">
-                    <i class="fa fa-file-pdf-o"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="displayMainTable table-responsive ">
+              <table class="table sortable">
+                <thead>
+                  <tr>
+                    <th data-dateformat="MM/DD/YY">Date</th>
+                    <th colspan="2">Report</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let report of patient?.reports" class="item">
+                    <td class="col-xs-2">{{report?.reportDate | date : 'shortDate'}}</td>
+                    <td class="col-xs-8">
+                      <a href="#">{{report?.reportName}}
+                        <!-- <p class="subheading">Public Health Labs</p> -->
+                      </a>
+                    </td>
+                    <td class="col-xs-2">
+                      <i class="fa fa-file-pdf-o"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
