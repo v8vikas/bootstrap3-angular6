@@ -87,17 +87,18 @@
         <div class="panel-body nested-accordion">
           <div class="row mt-10">
             <div class="col-sm-12">
-              <div class="panel-group" id="('single-report-accordion' + i)">
+              <div class="panel-group" [attr.id]="('single-report-accordion' + i)">
                 <div class="panel panelMain panel-default">
                   <div class="panel-heading panelMainHead">
-                    <h4 class="panel-title" data-toggle="collapse" data-parent="('#single-report-accordion' + i)" href="('#single-test-report' + i)">
+                    <h4 class="panel-title" data-toggle="collapse" [attr.parent]="('#single-report-accordion' + i)"
+                      [attr.href]="('#single-test-report' + i)">
                       <a href="javascript:void(0);">
                         {{testResult?.categoryName}}
                         <span *ngIf="testResult?.newCount" class="iosbContent">new</span>
                       </a>
                     </h4>
                   </div>
-                  <div id="('single-test-report' + i)" class="panel-collapse collapse">
+                  <div [attr.id]="('single-test-report' + i)" class="panel-collapse collapse">
                     <div class="panel-body">
 
                       <div *ngFor="let testByDate of testResult?.testsByDates; let index = index" class="panel-group level2-accordion"

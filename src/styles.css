@@ -392,7 +392,8 @@ tbody tr:nth-child(odd) {
 }
 
 .msgSidebar ul .active a,
-.msgSidebar ul .active a:hover {
+.msgSidebar ul .active a:hover,
+.msgSidebar ul .active a:focus {
   background: #006db8;
   color: #fff;
   border-color: #006db8;
@@ -406,6 +407,28 @@ tbody tr:nth-child(odd) {
 
 
 @media (max-width:767px) {
+  .panel-group {
+    margin-bottom: 0;
+  }
+
+  .noRightPad {
+    display: none;
+  }
+
+  .noLeftPad {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .noLeftPad .nested-accordion .col-sm-12 {
+    padding: 0;
+  }
+
+  .noLeftPad .panel-default {
+    margin-bottom: 0;
+    border: 1px solid #fff !important;
+    margin-top: -0.5px;
+  }
 
   /* .one,
   .two,

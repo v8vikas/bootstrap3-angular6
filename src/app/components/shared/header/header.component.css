@@ -125,6 +125,7 @@ a:hover {
 
   .mobile-view {
     display: block;
+    margin-bottom: 0;
   }
 
   .web-view {
