@@ -152,9 +152,12 @@ a:hover {
 
   .titleMenu {
     display: block;
-    border-bottom: 1px solid #e6e6e6;
-    font-weight: 800;
+    border-bottom: 0;
+    font-weight: 400;
     padding: 13px 15px 10px 15px;
+    background: #333;
+    color: #fff;
+
   }
 
   .mainMenu ul.list-inline {
@@ -175,12 +178,12 @@ a:hover {
   .two,
   .three {
     background-color: #000;
-    height: 2px;
-    margin: 4px auto;
+    height: 2.9px;
+    margin: 3px auto;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
     display: table;
-    width: 20px;
+    width: 17px;
     border-radius: 5px;
   }
 
@@ -188,12 +191,14 @@ a:hover {
     -webkit-transform: rotate(-45deg) translate(-5px, 4px);
     transform: rotate(-45deg) translate(-5px, 4px);
     width: 21.5px;
+    background: #ededec;
   }
 
   .open .three {
     -webkit-transform: rotate(45deg) translate(-4.4px, -3px);
     transform: rotate(45deg) translate(-4.4px, -3px);
     width: 21px;
+    background: #ededec;
   }
 
   .open .two {
@@ -253,9 +258,9 @@ a:hover {
     position: fixed;
     margin: 0;
     height: 100%;
-    background: #fff;
+    background: #ededed;
     left: 0;
-    width: 200px;
+    width: 250px;
     box-shadow: 0px 0px 15px rgba(204, 204, 204, 0.5);
     top: 0;
     z-index: 99;
@@ -284,10 +289,13 @@ a:hover {
   }
 
   .mainMenu ul li a {
-    padding: 10px 15px;
+    margin: 10px;
     display: block;
     color: #444;
     font-weight: 600;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
   }
 
   .headBtm {
