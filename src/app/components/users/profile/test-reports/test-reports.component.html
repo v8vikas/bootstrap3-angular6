@@ -4,7 +4,7 @@
       <h3 class="headingIcon">
         <i class="fa fa-check-circle fa-1x"></i>&nbsp;Test Results</h3>
     </div>
-    <div *ngIf="testResults && testResults.length" class="col-md-3 noRightPad">
+    <div class="col-md-3 noRightPad">
       <div class="msgSidebar">
         <ul class="list-unstyled">
           <li (click)="activeTestResult = testResult" [ngClass]="{'active': (activeTestResult?.categoryName === testResult.categoryName)}"
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="col-md-9 noLeftPad">
-      <div class="panel panel-default">
+      <div class="panel panel-default web-view">
         <div class="panel-body nested-accordion">
           <div class="row mt-10">
             <div class="col-sm-12">
@@ -33,6 +33,74 @@
                     <div class="panel-body">
 
                       <div *ngFor="let testByDate of activeTestResult?.testsByDates; let index = index" class="panel-group level2-accordion"
+                        [attr.id]="'accordion_' + index" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title" role="button" data-toggle="collapse" [attr.data-parent]="'#accordion_' + index"
+                              [attr.href]="'#collapseOne_' + index">
+                              <a>
+                                Tested {{testByDate.visitDate | date: 'mediumDate'}}
+                                <span *ngIf="testByDate?.newTestsCount" class="iosbContent">new</span>
+                              </a>
+                            </h4>
+                          </div>
+                          <div [attr.id]="'collapseOne_' + index" class="panel-collapse collapse">
+                            <div class="panel-body nested">
+                              <h3 class="TestResult">Test Result: Negative
+                                <span class="follow-up">Follow-up: Make appointment with provider.</span>
+                              </h3>
+                              <div class="displayMainTable customTb table-responsive">
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th class="th1">Test Performed</th>
+                                      <th class="th2">Result</th>
+                                      <th class="th3">Interpretation</th>
+                                      <th class="th4">Site</th>
+                                      <th class="th6">Post Date</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let test of testByDate?.tests;">
+                                      <td>{{test?.testName}}</td>
+                                      <td>{{test?.result}}</td>
+                                      <td>Interpretation</td>
+                                      <td>{{test?.specimenSource}}</td>
+                                      <td>{{test?.visitDate | date: 'mediumDate'}}</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default mobile-view" *ngFor="let testResult of testResults; let i = index;">
+        <div class="panel-body nested-accordion">
+          <div class="row mt-10">
+            <div class="col-sm-12">
+              <div class="panel-group" id="('single-report-accordion' + i)">
+                <div class="panel panelMain panel-default">
+                  <div class="panel-heading panelMainHead">
+                    <h4 class="panel-title" data-toggle="collapse" data-parent="('#single-report-accordion' + i)" href="('#single-test-report' + i)">
+                      <a href="javascript:void(0);">
+                        {{testResult?.categoryName}}
+                        <span *ngIf="testResult?.newCount" class="iosbContent">new</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="('single-test-report' + i)" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                      <div *ngFor="let testByDate of testResult?.testsByDates; let index = index" class="panel-group level2-accordion"
                         [attr.id]="'accordion_' + index" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                           <div class="panel-heading" role="tab" id="headingOne">
