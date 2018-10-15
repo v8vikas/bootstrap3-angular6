@@ -17,7 +17,7 @@
             </div>
             <div id="vaccinations" class="panel-collapse collapse">
               <div class="panel-body">
-                <div *ngFor="let vaccination of patient?.treatmentHistory?.vaccinations" class="vctnInr">
+                <div *ngFor="let vaccination of treatmentHistory?.vaccinations" class="vctnInr">
                   <h5 class="vctnTitle">{{vaccination?.vaccineName}}</h5>
                   <div class="displayMainTable table-responsive ">
                     <table class="table vaccines">
@@ -64,8 +64,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let medication of patient?.treatmentHistory?.medications">
-                            <td class="col-xs-2">{{medication?.rxDate}}</td>
+                          <tr *ngFor="let medication of treatmentHistory?.medications">
+                            <td class="col-xs-2">{{medication?.rxDate | date : 'shortDate'}}</td>
                             <td class="col-xs-3">{{medication?.rxName}}</td>
                             <td class="col-xs-1">{{medication?.rxFreq}}</td>
                             <td class="col-xs-1">{{medication?.rxDose}}</td>

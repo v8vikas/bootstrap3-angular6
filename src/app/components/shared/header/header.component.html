@@ -57,7 +57,7 @@
             <a href="/">
               <img src="{{mainLogo}}" alt="logo" />
             </a>
-            <div class="mbSrch">
+            <div [routerLink]="'/'" class="mbSrch">
               <i class="fa fa-search"></i>
             </div>
           </div>
@@ -88,10 +88,11 @@
             </span>
             <ul class="list-inline">
               <li *ngFor="let menu  of mainMenu"><a [routerLink]="[menu.url]">{{menu.title}}</a></li>
+              <li class="mobile-view"><a [routerLink]="'/'">Search</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-md-4 col-sm-4">
+        <div class="col-md-4 col-sm-4 web-view">
           <div class="btnSrch text-right">
             <a [routerLink]="'/'" class="customBtn cPink">Search</a>
           </div>

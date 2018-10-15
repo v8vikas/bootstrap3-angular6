@@ -111,6 +111,14 @@
   font-weight: 600;
 }
 
+.messageSendF a.read {
+  color: #666;
+}
+
+.userNCheck a.read {
+  color: #666;
+}
+
 .listMsg {
   position: relative;
   display: block;
@@ -213,4 +221,12 @@
   .userNCheck {
     padding-bottom: 5px;
   }
+}
+
+.cut-text {
+  width : 95%;
+  overflow:hidden;
+  display:inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

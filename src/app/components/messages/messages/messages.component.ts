@@ -110,7 +110,7 @@ export class MessagesComponent implements OnInit {
         v['isChecked'] = value;
       } else if (type && type === 'read' && v.isRead) {
         v['isChecked'] = value;
-      } else if (type && type === 'read' && !v.isRead) {
+      } else if (type && type === 'unread' && !v.isRead) {
         v['isChecked'] = value;
       } else {
         v['isChecked'] = false;
@@ -131,6 +131,19 @@ export class MessagesComponent implements OnInit {
       }, (error) => {
         // @TODO do what you want to do.
       })
+    }
+  }
+
+  read(message: any) {
+    if (!message.isRead) {
+      const messageIndex = this.allMessages.messages.findIndex(v => v.messageId === message.messageId);
+      if (messageIndex !== -1) {
+        this.allMessages.messages[messageIndex].isRead = true;
+        this.allMessages.setData();
+      }
+      // @TODO create a method to update isRead key of the message in the messagesService.
+      // this.messageServices.setAsRead(message).subscribe((response) =>{
+      // })
     }
   }
 

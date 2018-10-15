@@ -88,16 +88,16 @@
               <div class="userNCheck">
                 <input (change)="addRemove($event, message)" [checked]="message?.isChecked" [attr.id]="('checkAll' + index)" type="checkbox">
                 <label [attr.for]="('checkAll' + index)"></label>
-                <a [attr.href]="('#collapse' + index)" data-toggle="collapse" data-parent="#accordion">
+                <a [ngClass]="{'read': message?.isRead}" [attr.href]="('#collapse' + index)" data-toggle="collapse" data-parent="#accordion">
                   <span class="name">{{message?.clinician}}</span>
                 </a>
               </div>
             </div>
-            <div class="col-sm-12 col-md-9">
+            <div (click)="read(message)" class="col-sm-12 col-md-9">
               <div class="messageSendF">
-                <a [attr.href]="('#collapse' + index)" data-toggle="collapse" data-parent="#accordion">
+                <a [ngClass]="{'read': message?.isRead}" [attr.href]="('#collapse' + index)" data-toggle="collapse" data-parent="#accordion">
                   <span class="">{{message?.subject}}</span>
-                  <p class="ellipse"><span class="emailSummary">{{message?.message}}</span>
+                  <p class="ellipse"><span class="emailSummary cut-text">{{message?.message}}</span>
                   </p>
                 </a>
                 <div [attr.id]="('collapse' + index)" class="collapse" role="tabpanel">

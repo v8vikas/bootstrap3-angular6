@@ -3,7 +3,9 @@
 
   <div class="container">
     <!-- pofile section -->
-    <app-profile-details *ngIf="patient?.patientModal" [patientModal]="patient?.patientModal" #profilePage></app-profile-details>
+    <div #profilePage>
+      <app-profile-details *ngIf="patient?.patientModal" [patientModal]="patient?.patientModal"></app-profile-details>
+    </div>
     <!-- pofile section -->
 
     <!-- table design section -->
